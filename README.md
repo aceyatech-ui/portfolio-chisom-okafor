@@ -2,7 +2,7 @@
 
 > Personal portfolio website for Chisom Okafor (Aceya / Slime) — AI/ML, Automation & Dev Engineer.
 
-Live demo: [https://aceyatech-ui.github.io/portfolio-chisom-okafor/](https://aceyatech-ui.github.io/portfolio-chisom-okafor/) *(replace with your actual URL)*
+Live demo: [https://aceyatech-ui.github.io/portfolio-chisom-okafor/](https://aceyatech-ui.github.io/portfolio-chisom-okafor/)
 
 ---
 

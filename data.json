@@ -98,8 +98,8 @@
       "endDate": "Ongoing",
       "socials": {
         "facebook": "https://web.facebook.com/profile.php?id=100064973045551"
-        }
       }
+    }
   ],
 
   "workExperience": [
@@ -142,7 +142,7 @@
       "endDate": "May 2026",
       "status": "completed",
       "statusLabel": "Completed",
-      "programUrl": "https://www.coursera.org/professional-certificates/google-cybersecurity"
+      "programUrl": "https://www.coursera.org/professional-certificates/google-cybersecurity",
       "certificateUrl": "https://www.credly.com/badges/3cb4f984-b67e-4578-bd6c-56a2d78a1ce8/linked_in_profile"
     },
     {
@@ -192,11 +192,9 @@
     }
   ],
 
-  "reviews": [] ,
-  
+  "reviews": [],
 
-  "testimonials": [] ,
-   
+  "testimonials": [],
 
   "backend": {
     "apiBaseUrl": "https://portfolio-chisom-okafor.onrender.com/",

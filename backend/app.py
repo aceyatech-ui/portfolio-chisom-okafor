@@ -4,6 +4,8 @@ Aceya Portfolio — Backend
 Handles review submissions and a hidden, password-protected admin panel
 for approving/rejecting them.
 
+Also includes Gemini AI chat endpoint for the portfolio chatbot.
+
 Endpoints
 ---------
 POST /submit-review          -> stores a new review in pending_reviews.json
@@ -14,13 +16,14 @@ POST /approve-review/<id>    -> moves a review from pending -> approved
 POST /reject-review/<id>     -> deletes a review from pending
 GET  /api/reviews             -> public: returns all approved reviews (JSON)
 POST /admin-logout            -> clears the admin session
+POST /chat                    -> Gemini AI chat endpoint (for the chatbot)
 
 Run locally
 -----------
   cd backend
   python -m venv venv && source venv/bin/activate   (Windows: venv\\Scripts\\activate)
   pip install -r requirements.txt
-  cp .env.example .env      # then edit .env with your own password
+  cp .env.example .env      # then edit .env with your own values
   python app.py
 
 The server starts on http://localhost:5000 by default.
@@ -37,6 +40,9 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
 from flask_cors import CORS
 
+# ---- Gemini AI ----
+import google.generativeai as genai
+
 load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -52,11 +58,17 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-change-me")
 # Comma-separated list of allowed frontend origins (your GitHub Pages URL, etc.)
 ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "*")
 
+# ---- Gemini API ----
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+genai.configure(api_key=GEMINI_API_KEY)
+gemini_model = genai.GenerativeModel("gemini-2.0-flash-lite")
+
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
 CORS(app, resources={
     r"/api/*": {"origins": ALLOWED_ORIGINS},
     r"/submit-review": {"origins": ALLOWED_ORIGINS},
+    r"/chat": {"origins": ALLOWED_ORIGINS},
 })
 
 
@@ -192,6 +204,36 @@ def reject_review(review_id):
 def admin_logout():
     session.pop("is_admin", None)
     return redirect(ADMIN_URL)
+
+
+# --------------------------------------------------------------------------
+# Gemini AI Chat Endpoint (for the portfolio chatbot)
+# --------------------------------------------------------------------------
+@app.route("/chat", methods=["POST"])
+def chat():
+    data = request.get_json(silent=True) or {}
+    user_message = data.get("message", "").strip()
+
+    if not user_message:
+        return jsonify({"error": "Message is required"}), 400
+
+    system_prompt = """
+    You are Aceya's assistant. You help people with:
+    - Portfolio websites
+    - Business websites
+    - Collaboration / working together
+
+    Keep responses short (1-2 sentences), friendly, and actionable.
+    If you don't know something, say so honestly.
+    Do not mention that you are an AI.
+    """
+
+    try:
+        response = gemini_model.generate_content(system_prompt + "\nUser: " + user_message)
+        reply = response.text.strip()
+        return jsonify({"reply": reply})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 # --------------------------------------------------------------------------

@@ -218,7 +218,7 @@
   "testimonials": [],
 
   "backend": {
-    "apiBaseUrl": "https://portfolio-chisom-okafor.onrender.com/",
+    "apiBaseUrl": "https://portfolio-chisom-okafor.onrender.com",
     "note": "Gotta approve those reviews."
   },
 

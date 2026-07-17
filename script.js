@@ -4,7 +4,7 @@
    - light/dark theme toggle (persisted in localStorage)
    - scroll reveal animations
    - mobile nav
-   - projects / programs & certifications filtering (type + tags)
+   - projects / programs & certifications filtering (type + tags + cert category)
    - reviews & testimonials filtering + submission (to the Flask backend)
    - floating chatbot (persisted in localStorage)
    To update site content, edit data.json — you should not need to touch this file.
@@ -327,6 +327,7 @@
   let ALL_CERTS = [];
   let activeTypeFilter = "all";
   let activeTagFilter = null;
+  let activeCertCategoryFilter = "all";
 
   function renderPrograms(certifications) {
     ALL_CERTS = certifications;
@@ -348,6 +349,17 @@
       tagRow.appendChild(btn);
     });
 
+    // Cert category filter
+    document.querySelectorAll("#certFilterRow .filter-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        activeCertCategoryFilter = btn.dataset.certFilter;
+        document.querySelectorAll("#certFilterRow .filter-btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        drawPrograms();
+      });
+    });
+
+    // Type filter (Programs / Certificates)
     document.querySelectorAll("#filterRow .filter-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         activeTypeFilter = btn.dataset.filter;
@@ -366,7 +378,8 @@
     const filtered = ALL_CERTS.filter(function (c) {
       const typeMatch = activeTypeFilter === "all" || c.type === activeTypeFilter;
       const tagMatch = !activeTagFilter || c.tags.indexOf(activeTagFilter) !== -1;
-      return typeMatch && tagMatch;
+      const categoryMatch = activeCertCategoryFilter === "all" || c.category === activeCertCategoryFilter;
+      return typeMatch && tagMatch && categoryMatch;
     });
 
     filtered.forEach(function (c) {
@@ -385,6 +398,17 @@
       const bodyRow = el("div", "program-body-row");
       bodyRow.appendChild(el("div", "program-logo", c.organisation.slice(0, 2).toUpperCase()));
       bodyRow.appendChild(el("p", "program-desc", c.description));
+
+      // ---- CERTIFICATE IMAGE (with hover zoom) ----
+      if (c.image) {
+        const imgWrap = el("div", "cert-image-wrap");
+        const img = el("img", "cert-image");
+        img.src = c.image;
+        img.alt = c.name + " certificate";
+        imgWrap.appendChild(img);
+        bodyRow.appendChild(imgWrap);
+      }
+
       card.appendChild(bodyRow);
 
       const tagList = el("div", "tag-list");
@@ -819,27 +843,24 @@
         }
       }
 
-      if (/skill/.test(lower)) { handleAction("skills"); return; }
-      if (/project/.test(lower)) { handleAction("projects"); return; }
-      if (/program|cert/.test(lower)) { handleAction("programs"); return; }
-      if (/contact|email|reach/.test(lower)) { handleAction("contact"); return; }
-      if (/available|availability|hire|schedule/.test(lower)) { handleAction("availability"); return; }
+      // ---- GEMINI CHAT HANDLING ----
+      // Instead of hardcoded fallback, call the Gemini endpoint
+      fetch("https://portfolio-chisom-okafor.onrender.com/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: trimmed })
+      })
+      .then(res => res.json())
+      .then(data => {
+        addMessage("bot", data.reply);
+      })
+      .catch(() => {
+        // Fallback if Gemini is unreachable
+        addMessage("bot", "Sorry, I'm having trouble connecting. Try again in a moment.");
+      });
 
-      if (!state.pivoted && state.userMessageCount >= config.pivotAfterMessages) {
-        state.pivoted = true;
-        saveState();
-        respond(config.pivotMessage);
-        setTimeout(showQuickReplies, 500);
-        return;
-      }
-
-      if (!state.pivoted) {
-        respond("Ha, fair enough! Tell me more 😄");
-        return;
-      }
-
-      addMessage("bot", "Sorry, I can't help you any further. You'd have to contact my maker. Want me to show you how?");
-      showYesNoButtons();
+      // Don't continue — Gemini handles the response
+      return;
     }
 
     function restoreMessages() {

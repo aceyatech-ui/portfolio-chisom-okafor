@@ -2,11 +2,11 @@
   "profile": {
     "fullName": "Chisom Okafor",
     "nicknames": ["Aceya", "Slime"],
-    "title": "AI/ML, Automation & Dev Engineer",
-    "tagline": "I build systems that think, connect, and ship.",
-    "philosophy": "I build with a security-aware mindset — I know how things break.",
+    "title": "AI/ML, Automation, Developer, Engineer",
+    "tagline": "Be swift, that platform ain't gonna tailor itself.",
+    "philosophy": "I build with a security-aware mindset. I know how things break.",
     "bio": "I started tech in January 2026. I'm a builder — I don't just learn, I ship. I build Small Language Models, automate workflows with n8n and Python, and create frontends that people actually use. I'm currently running SynCorrazon (my startup) and Kaizora Academy (where I teach AI Automation). I'm also a participant in TRI AI (Google DeepMind), the FlyRank ML Internship, and the ATF AI Challenge. My friends call me Slime.",
-    "hobbies": ["Reverse-engineering how things break", "Automating anything repetitive", "Teaching what I just learned", "Late-night build sessions"],
+    "hobbies": ["Getting to legendary", "probably watching a horror movie", "Listening to good music", "Taking a walk"],
     "profileImage": "assets/images/profile.jpg",
     "contact": {
       "email": "hello@aceya.dev",
@@ -35,40 +35,29 @@
       "statusLabel": "Completed",
       "startDate": "Feb 2026",
       "endDate": "Mar 2026",
-      "links": { "live": "https://github.com/placeholder/quiz-app", "github": "https://github.com/placeholder/quiz-app" }
+      "links": { "live": "https://aceyatech-ui.github.io/Personality-quiz-what-kind-of-animal-are-you-/", "github": "https://github.com/aceyatech-ui/Personality-quiz-what-kind-of-animal-are-you-" }
     },
     {
-      "id": "syncorrazon-platform",
-      "name": "SynCorrazon Platform",
-      "description": "Core product build for my startup — connecting automation workflows to a user-facing platform.",
-      "techStack": ["n8n", "Python", "JavaScript"],
-      "status": "in-progress",
-      "statusLabel": "In Progress",
-      "startDate": "Mar 2026",
-      "endDate": "Ongoing",
-      "links": { "live": "https://syncorrazon.example.com", "github": "https://github.com/placeholder/syncorrazon" }
-    },
-    {
-      "id": "kaizora-curriculum",
-      "name": "Kaizora Curriculum Builder",
-      "description": "Internal tool for building and versioning the AI Automation curriculum taught at Kaizora Academy.",
-      "techStack": ["Python", "JSON", "Automation"],
-      "status": "in-view",
-      "statusLabel": "In View",
-      "startDate": "Apr 2026",
-      "endDate": "Ongoing",
-      "links": { "live": "https://kaizora.example.com", "github": "https://github.com/placeholder/kaizora-curriculum" }
+      "id": "Rock-paper-scissors",
+      "name": "Rock, Paper, Scissors",
+      "description": "A fun game I play every now and then because all work and no play sucks.",
+      "techStack": ["Python", "html"],
+      "status": "completed",
+      "statusLabel": "Completed",
+      "startDate": "feb 2026",
+      "endDate": "Jul 2026",
+      "links": { "live": "https://aceyatech-ui.github.io/Rock-Paper-Scissors-game/", "github": "https://aceyatech-ui.github.io/Rock-Paper-Scissors-game" }
     },
     {
       "id": "tri-ai-slm",
-      "name": "TRI AI — Small Language Model",
+      "name": "Building a small language model (lab)",
       "description": "Built as part of the TRI AI program (Google DeepMind) — a small language model trained and evaluated end-to-end.",
       "techStack": ["Python", "PyTorch", "SLM"],
-      "status": "in-progress",
-      "statusLabel": "In Progress",
+      "status": "completed",
+      "statusLabel": "Completed",
       "startDate": "May 2026",
       "endDate": "Ongoing",
-      "links": { "live": "https://github.com/placeholder/tri-ai-slm", "github": "https://github.com/placeholder/tri-ai-slm" }
+      "links": { "github": "https://github.com/aceyatech-ui/Building-a-small-language-model" }
     },
     {
       "id": "data-scraping",
@@ -105,15 +94,12 @@
       "description": "Where I teach AI Automation — practical, project-based, built for people who want to ship, not just learn theory.",
       "status": "completed",
       "statusLabel": "Active",
-      "startDate": "Feb 2026",
+      "startDate": "Jun 2026",
       "endDate": "Ongoing",
       "socials": {
-        "instagram": "https://instagram.com/placeholder",
-        "linkedin": "https://linkedin.com/company/placeholder",
-        "twitter": "https://twitter.com/placeholder"
-      },
-      "website": "https://kaizora.example.com"
-    }
+        "facebook": "https://web.facebook.com/profile.php?id=100064973045551"
+        }
+      }
   ],
 
   "workExperience": [
@@ -123,123 +109,94 @@
       "role": "ML Intern",
       "startDate": "Jul 2026",
       "endDate": "Ongoing",
-      "description": "Building business analysis SLMs and automation pipelines within FlyRank's engineering team.",
-      "link": "https://flyrank.example.com"
+      "description": "Building and training agents that work, with guidance from the wonderful team.",
+      "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FeBE?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGPQ5vUBYd7Bc4KQwI_JfXLrSla8aNoDSHs"
     }
   ],
 
   "certifications": [
     {
-      "id": "tri-ai-program",
-      "name": "TRI AI",
-      "organisation": "Google DeepMind",
-      "logo": "assets/logos/tri-ai.svg",
-      "description": "Selected participant building and evaluating AI systems as part of the TRI AI cohort.",
+      "id": "python automation",
+      "name": "Google IT Automation with Python Professional Certificate",
+      "organisation": "Coursera: John Hopkins University",
+      "logo": "assets/logos/it-automation.svg",
+      "description": "Letting python do the repetitive work.",
       "type": "program",
-      "tags": ["ai", "ml", "google", "deepmind"],
-      "startDate": "Apr 2026",
-      "endDate": "Ongoing",
-      "status": "in-progress",
-      "statusLabel": "In Progress",
-      "programUrl": "https://tri-ai.example.com",
-      "certificateUrl": null
-    },
-    {
-      "id": "flyrank-internship",
-      "name": "ML Internship",
-      "organisation": "FlyRank",
-      "logo": "assets/logos/flyrank.svg",
-      "description": "Hands-on machine learning internship focused on model evaluation and workflow automation.",
-      "type": "program",
-      "tags": ["ml", "python", "automation"],
-      "startDate": "Jul 2026",
-      "endDate": "Ongoing",
-      "status": "in-progress",
-      "statusLabel": "In Progress",
-      "programUrl": "https://flyrank.example.com",
-      "certificateUrl": null
-    },
-    {
-      "id": "atf-ai-challenge",
-      "name": "AI Challenge",
-      "organisation": "ATF",
-      "logo": "assets/logos/atf.svg",
-      "description": "Competed in a timed AI-building challenge covering applied ML and rapid prototyping.",
-      "type": "program",
-      "tags": ["ai", "ml"],
-      "startDate": "May 2026",
-      "endDate": "Jun 2026",
-      "status": "completed",
-      "statusLabel": "Completed",
-      "programUrl": "https://atf-ai-challenge.example.com",
-      "certificateUrl": null
-    },
-    {
-      "id": "kaizora-automation-cert",
-      "name": "AI Automation Certificate",
-      "organisation": "Kaizora Academy",
-      "logo": "assets/logos/kaizora.svg",
-      "description": "Certification covering n8n workflow design, API integrations, and automated pipelines.",
-      "type": "certificate",
-      "tags": ["automation", "python", "business"],
+      "tags": ["python", "bash", "Google", "automation"],
       "startDate": "Feb 2026",
       "endDate": "Mar 2026",
       "status": "completed",
       "statusLabel": "Completed",
-      "programUrl": null,
-      "certificateUrl": "assets/images/cert-placeholder.jpg"
+      "programUrl": "https://www.coursera.org/professional-certificates/google-it-automation",
+      "certificateUrl": "https://www.credly.com/badges/936664ce-78ac-434d-b528-461d4592cc09/linked_in_profile"
     },
     {
-      "id": "security-aware-dev-cert",
-      "name": "Security-Aware Development",
+      "id": "Google cybersecurity",
+      "name": "Google Cybersecurity Professional Certificate(v.2)",
+      "organisation": "Coursera: Google",
+      "logo": "assets/logos/flyrank.svg",
+      "description": "Hands-on cybersecurity training focused on defence and analysis.",
+      "type": "program",
+      "tags": ["security", "python", "automation"],
+      "startDate": "Apr 2026",
+      "endDate": "May 2026",
+      "status": "completed",
+      "statusLabel": "Completed",
+      "programUrl": "https://www.coursera.org/professional-certificates/google-cybersecurity"
+      "certificateUrl": "https://www.credly.com/badges/3cb4f984-b67e-4578-bd6c-56a2d78a1ce8/linked_in_profile"
+    },
+    {
+      "id": "Introduction to DevSecOps",
+      "name": "Introduction To DevSecOps",
+      "organisation": "Coursera: Board Infinity",
+      "logo": "assets/logos/boardinfinity.svg",
+      "description": "CI/CD Integration.",
+      "type": "program",
+      "tags": ["dev"],
+      "startDate": "May 2026",
+      "endDate": "May 2026",
+      "status": "completed",
+      "statusLabel": "Completed",
+      "programUrl": "https://www.coursera.org/learn/devsecops",
+      "certificateUrl": "https://www.coursera.org/account/accomplishments/verify/SHZ07UUKU09V?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+    },
+    {
+      "id": "Introduction To DevSecOps",
+      "name": "Introduction To DevSecOps",
+      "organisation": "Coursera: John Hopkins University",
+      "logo": "assets/logo.johnhopkins.svg",
+      "description": "Certification covering n8n workflow design, API integrations, and automated pipelines.",
+      "type": "certificate",
+      "tags": ["python", "CI/CD", "dev"],
+      "startDate": "Apr 2026",
+      "endDate": "may 2026",
+      "status": "completed",
+      "statusLabel": "Completed",
+      "programUrl": "https://www.coursera.org/learn/introduction-to-devsecops",
+      "certificateUrl": "https://www.coursera.org/account/accomplishments/verify/YVI228SVRLEQ"
+    },
+    {
+      "id": "slm build",
+      "name": "Build Your Own Small Language Model",
       "organisation": "Kaizora Academy",
       "logo": "assets/logos/kaizora.svg",
       "description": "Self-directed certification track on secure coding practices and threat-aware system design.",
-      "type": "certificate",
+      "type": "badge",
       "tags": ["security", "dev"],
-      "startDate": "Jun 2026",
-      "endDate": "Jul 2026",
-      "status": "in-view",
-      "statusLabel": "In View",
+      "startDate": "may 2026",
+      "endDate": "jun 2026",
+      "status": "completed",
+      "statusLabel": "Completed",
       "programUrl": null,
-      "certificateUrl": "assets/images/cert-placeholder.jpg"
+      "certificateUrl": "https://www.skills.google/public_profiles/0cd9b44c-7f3d-477b-b3ef-28362099795f/badges/25109300"
     }
   ],
 
-  "reviews": [
-    {
-      "id": "rev-001",
-      "type": "review",
-      "name": "Faruk",
-      "avatar": "assets/images/avatar-faruk.jpg",
-      "linkedin_url": "https://linkedin.com/in/placeholder-faruk",
-      "review": "She builds fast and thinks clearly.",
-      "date": "2026-07-10",
-      "approved": true
-    },
-    {
-      "id": "rev-002",
-      "type": "review",
-      "name": "Theo",
-      "avatar": "assets/images/avatar-theo.jpg",
-      "linkedin_url": "https://linkedin.com/in/placeholder-theo",
-      "review": "She's the one who keeps things moving.",
-      "date": "2026-07-12",
-      "approved": true
-    }
-  ],
+  "reviews": [] ,
+  
 
-  "testimonials": [
-    {
-      "id": "test-001",
-      "type": "testimonial",
-      "name": "Faruk",
-      "role": "Fullstack Developer",
-      "avatar": "assets/images/avatar-faruk.jpg",
-      "linkedin_url": "https://linkedin.com/in/placeholder-faruk",
-      "review": "She builds fast and thinks clearly — one of the few people I've worked with who can go from idea to shipped product without losing the plot."
-    }
-  ],
+  "testimonials": [] ,
+   
 
   "backend": {
     "apiBaseUrl": "https://portfolio-chisom-okafor.onrender.com/",

@@ -35,7 +35,10 @@
       "statusLabel": "Completed",
       "startDate": "Feb 2026",
       "endDate": "Mar 2026",
-      "links": { "live": "https://aceyatech-ui.github.io/Personality-quiz-what-kind-of-animal-are-you-/", "github": "https://github.com/aceyatech-ui/Personality-quiz-what-kind-of-animal-are-you-" }
+      "links": {
+        "live": "https://aceyatech-ui.github.io/Personality-quiz-what-kind-of-animal-are-you-/",
+        "github": "https://github.com/aceyatech-ui/Personality-quiz-what-kind-of-animal-are-you-"
+      }
     },
     {
       "id": "Rock-paper-scissors",
@@ -46,7 +49,10 @@
       "statusLabel": "Completed",
       "startDate": "feb 2026",
       "endDate": "Jul 2026",
-      "links": { "live": "https://aceyatech-ui.github.io/Rock-Paper-Scissors-game/", "github": "https://aceyatech-ui.github.io/Rock-Paper-Scissors-game" }
+      "links": {
+        "live": "https://aceyatech-ui.github.io/Rock-Paper-Scissors-game/",
+        "github": "https://aceyatech-ui.github.io/Rock-Paper-Scissors-game"
+      }
     },
     {
       "id": "tri-ai-slm",
@@ -57,7 +63,9 @@
       "statusLabel": "Completed",
       "startDate": "May 2026",
       "endDate": "Ongoing",
-      "links": { "github": "https://github.com/aceyatech-ui/Building-a-small-language-model" }
+      "links": {
+        "github": "https://github.com/aceyatech-ui/Building-a-small-language-model"
+      }
     },
     {
       "id": "data-scraping",
@@ -68,7 +76,10 @@
       "statusLabel": "Completed",
       "startDate": "Jan 2026",
       "endDate": "Feb 2026",
-      "links": { "live": "https://github.com/placeholder/data-scraping-toolkit", "github": "https://github.com/placeholder/data-scraping-toolkit" }
+      "links": {
+        "live": "https://github.com/placeholder/data-scraping-toolkit",
+        "github": "https://github.com/placeholder/data-scraping-toolkit"
+      }
     }
   ],
 
@@ -221,11 +232,11 @@
       "I'm not lazy, I'm just running on an efficient automation schedule. ⚙️"
     ],
     "availability": {
-      "days": "I'm available Monday to Saturday. Sundays are offline — expect a response on Monday.",
+      "days": "I'm available Monday to Saturday. Sundays are offline. Expect a response on Monday.",
       "responseTime": "Within 24 hours on weekdays."
     },
     "fallback": "Sorry, I can't help you any further. You'd have to contact my maker (Aceya). Want me to show you how?",
-    "blockedKeywords": ["password", "secret", "private", "confidential", "hidden", "backdoor"],
+    "blockedKeywords": ["password", "secret", "private", "confidential", "hidden", "backdoor", "send",],
     "quickReplies": [
       { "label": "💻 Skills", "action": "skills" },
       { "label": "📁 Projects", "action": "projects" },

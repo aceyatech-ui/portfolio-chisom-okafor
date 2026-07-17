@@ -236,7 +236,7 @@
       "responseTime": "Within 24 hours on weekdays."
     },
     "fallback": "Sorry, I can't help you any further. You'd have to contact my maker (Aceya). Want me to show you how?",
-    "blockedKeywords": ["password", "secret", "private", "confidential", "hidden", "backdoor", "send",],
+    "blockedKeywords": ["password", "secret", "private", "confidential", "hidden", "backdoor", "send"],
     "quickReplies": [
       { "label": "💻 Skills", "action": "skills" },
       { "label": "📁 Projects", "action": "projects" },

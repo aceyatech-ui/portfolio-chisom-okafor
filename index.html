@@ -6,7 +6,11 @@
 <title>Aceya — Chisom Okafor | AI/ML, Automation &amp; Dev Engineer</title>
 <meta name="description" content="Portfolio of Chisom Okafor (Aceya / Slime) — AI/ML, Automation & Dev Engineer.">
 
-<!-- Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (code / labels) -->
+<!-- Favicon (emoji fallback) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+<link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,6 +35,7 @@
       <a href="#programs">Programs &amp; Certs</a>
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
+      <a href="#hobbiesSection">Hobbies</a>
     </nav>
 
     <div class="nav-actions">
@@ -54,7 +59,7 @@
         <h1 class="hero-name">Chisom Okafor</h1>
         <p class="hero-alias">aka <span class="alias-chip">Aceya</span> <span class="alias-chip">Slime</span></p>
         <p class="hero-title" id="heroTitle"></p>
-        <p class="hero-tagline">"I build systems that think, connect, and ship."</p>
+        <p class="hero-tagline">"Be swift, that platform ain't gonna tailor itself."</p>
         <div class="hero-cta-row">
           <a href="#projects" class="btn btn-primary">See My Work</a>
           <a href="#contact" class="btn btn-ghost">Get In Touch</a>
@@ -122,11 +127,15 @@
   <section class="section" id="programs">
     <p class="section-label reveal">// 06 — programs &amp; certifications</p>
     <h2 class="section-title reveal">Programs &amp; Certifications</h2>
-    <div class="filter-row reveal" id="filterRow">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="program">Programs Only</button>
-      <button class="filter-btn" data-filter="certificate">Certificates Only</button>
+
+    <!-- Filter buttons: All / Certificates / Badges / Programs -->
+    <div class="filter-row reveal" id="certFilterRow">
+      <button class="filter-btn active" data-cert-filter="all">All</button>
+      <button class="filter-btn" data-cert-filter="certificate">Certificates</button>
+      <button class="filter-btn" data-cert-filter="badge">Badges</button>
+      <button class="filter-btn" data-cert-filter="program">Programs</button>
     </div>
+
     <div class="tag-row reveal" id="tagRow"></div>
     <div class="programs-grid" id="programsGrid"></div>
   </section>

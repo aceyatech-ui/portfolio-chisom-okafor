@@ -242,8 +242,8 @@
   ],
 
   "backend": {
-    "apiBaseUrl": "https://your-render-app.onrender.com",
-    "note": "Set this to your deployed Render backend URL. Leave as-is to fall back to the approved reviews/testimonials already in this file."
+    "apiBaseUrl": "https://portfolio-chisom-okafor.onrender.com/",
+    "note": "Gotta approve those reviews."
   },
 
   "chatbot": {

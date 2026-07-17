@@ -602,6 +602,59 @@ h1,h2,h3{
 .program-links a:hover{ text-decoration: underline; }
 .program-links .disabled{ color: var(--text-soft); opacity: 0.6; pointer-events:none; }
 
+/* ---------- Certificate Image (with hover zoom) ---------- */
+.cert-image-wrap {
+  margin-top: 0.5rem;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  transition: z-index 0.3s ease;
+}
+
+.cert-image-wrap:hover {
+  z-index: 10;
+}
+
+.cert-image-wrap:hover .cert-image {
+  transform: scale(2.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-image {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* ---------- Cert filter buttons ---------- */
+#certFilterRow {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+#certFilterRow .filter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-soft);
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  transition: all var(--transition);
+}
+
+#certFilterRow .filter-btn.active,
+#certFilterRow .filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 /* ==========================================================================
    REVIEWS & TESTIMONIALS
    ========================================================================== */
@@ -917,6 +970,18 @@ h1,h2,h3{
   object-fit: cover;
   border: 1px solid var(--border);
   background: var(--code-bg);
+}
+
+/* ---------- Hobbies hover zoom ---------- */
+.hobby-item:hover .hobby-image {
+  transform: scale(2.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-image {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .hobby-placeholder {

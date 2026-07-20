@@ -9,26 +9,26 @@
     "hobbies": ["Getting to legendary", "probably watching a horror movie", "Listening to good music", "Taking a walk"],
     "profileImage": "assets/images/profile.jpg",
     "contact": {
-      "email": "hello@aceya.dev",
-      "whatsapp": "https://wa.me/000000000000",
-      "linkedin": "https://linkedin.com/in/placeholder",
-      "github": "https://github.com/placeholder"
+      "email": "aceyathedev@gmail.com",
+      "whatsapp": "https://api.whatsapp.com/message/DLE3UWZO6VBTI1",
+      "linkedin": "https://www.linkedin.com/in/chisom-okafor-5859b93a8",
+      "github": "https://github.com/aceyatech-ui"
     }
   },
 
   "skills": [
     { "category": "AI / ML", "items": ["Small Language Models (SLMs)", "Prompt Engineering", "Model Fine-tuning", "AI Agents"] },
     { "category": "Python Automation", "items": ["Python Scripting", "Task Automation", "API Integrations", "Data Pipelines"] },
-    { "category": "AI Automation", "items": ["n8n Workflows", "Zapier / Make", "Chatbot Logic", "Process Orchestration"] },
-    { "category": "Development", "items": ["HTML / CSS / JavaScript", "Frontend Builds", "REST APIs", "Git & GitHub"] },
-    { "category": "Security", "items": ["Security-aware Design", "Threat Modeling Basics", "Safe Data Handling", "Access Control Thinking"] },
-    { "category": "Business", "items": ["Startup Ops (SynCorrazon)", "Teaching & Curriculum (Kaizora)", "Client Communication", "Product Thinking"] }
+    { "category": "AI Automation", "items": ["n8n Workflows", "Zapier / Make", "Chatbot Logic", "Process Orchestration", "Prompt Engineering"] },
+    { "category": "Development", "items": ["HTML / CSS / JavaScript", "Python", "Frontend Builds", "REST APIs", "Git & GitHub"] },
+    { "category": "Security", "items": ["Security-aware Design", "Threat Modeling Basics", "Safe Data Handling", "Access Control Thinking", "splunk"] },
+    { "category": "Business", "items": ["Startup Ops (SynCorrazon)", "Teaching & Curriculum Building (Kaizora)", "Client Communication", "Product Thinking"] }
   ],
 
   "projects": [
     {
       "id": "quiz-app",
-      "name": "Quiz App",
+      "name": "Personality Quiz App",
       "description": "An interactive quiz application with score tracking, timed questions, and a clean, distraction-free interface.",
       "techStack": ["JavaScript", "HTML/CSS"],
       "status": "completed",
@@ -42,9 +42,9 @@
     },
     {
       "id": "Rock-paper-scissors",
-      "name": "Rock, Paper, Scissors",
+      "name": "Rock, Paper, Scissors App",
       "description": "A fun game I play every now and then because all work and no play sucks.",
-      "techStack": ["Python", "html"],
+      "techStack": ["Python", "html", "css"],
       "status": "completed",
       "statusLabel": "Completed",
       "startDate": "feb 2026",
@@ -197,7 +197,7 @@
     {
       "id": "slm-build",
       "name": "Build Your Own Small Language Model",
-      "organisation": "Kaizora Academy",
+      "organisation": "TRI AI; Google DeepMind",
       "image": "assets/images/cert-slm-build.jpg",
       "logo": "assets/logos/kaizora.svg",
       "description": "Self-directed certification on building and training SLMs.",
@@ -223,35 +223,33 @@
   },
 
   "chatbot": {
-    "greeting": "Hey! 👋 I'm Aceya's assistant. What's up?",
-    "pivotMessage": "I'm enjoying this chat! 😄 But let's talk about what you actually need. How can I help you today?",
-    "pivotAfterMessages": 5,
-    "jokes": [
-      "Why do programmers prefer dark mode? Because light attracts bugs. 🐛",
-      "I told my computer I needed a break, and it froze. 🥶",
-      "There are 10 types of people in the world: those who understand binary, and those who don't.",
-      "Why do Python devs wear glasses? Because they can't C. 👓",
-      "A SQL query walks into a bar, walks up to two tables and asks: 'Can I join you?'",
-      "Why was the JavaScript developer sad? Because he didn't Node how to Express himself.",
-      "I'd tell you a UDP joke, but you might not get it.",
-      "Why did the automation engineer quit? Too many trigger warnings. 😄",
-      "How many programmers does it take to change a light bulb? None — that's a hardware problem.",
-      "Why do developers hate nature? Too many bugs, not enough documentation.",
-      "My code doesn't have bugs. It just develops random features.",
-      "Why did the AI go to therapy? Too many unresolved dependencies.",
-      "I'm not lazy, I'm just running on an efficient automation schedule. ⚙️"
-    ],
+    "greeting": "Hey! 👋 I'm Chisom's assistant. Let's quickly pinpoint what you need so I can connect you with Chisom!",
+    "systemPrompt": "Keep responses short (1-2 sentences). Help the user define their project needs in 2-3 quick questions max, then immediately encourage them to use the contact option to reach Chisom.",
+    "pivotMessage": "I've got a great idea of what you need! The best next step is to reach out to Chisom directly so you can get started.",
+    "pivotAfterMessages": 3,
+    "persistence": {
+      "autoShowContactAfterPivot": true,
+      "followUpPrompt": "Ready to bring this project to life? Let's get you connected with Chisom."
+    },
     "availability": {
       "days": "I'm available Monday to Saturday. Sundays are offline. Expect a response on Monday.",
       "responseTime": "Within 24 hours on weekdays."
     },
-    "fallback": "Sorry, I can't help you any further. You'd have to contact my maker (Aceya). Want me to show you how?",
-    "blockedKeywords": ["password", "secret", "private", "confidential", "hidden", "backdoor", "send"],
+    "fallback": "I've gathered enough details to get you started! Let's get you in direct contact with Chisom.",
+    "blockedKeywords": [
+      "password",
+      "secret",
+      "private",
+      "confidential",
+      "hidden",
+      "backdoor",
+      "send"
+    ],
     "quickReplies": [
       { "label": "💻 Skills", "action": "skills" },
       { "label": "📁 Projects", "action": "projects" },
       { "label": "🎓 Programs & Certs", "action": "programs" },
-      { "label": "📬 Contact", "action": "contact" },
+      { "label": "📬 Contact Chisom", "action": "contact" },
       { "label": "🕒 Availability", "action": "availability" }
     ]
   }

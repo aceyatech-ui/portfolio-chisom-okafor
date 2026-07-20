@@ -26,7 +26,7 @@ Live demo: [https://aceyatech-ui.github.io/portfolio-chisom-okafor/](https://ace
 | Frontend | HTML, CSS, JavaScript (vanilla) |
 | Backend | Python + Flask |
 | Data | JSON files (frontend content + backend reviews) |
-| Hosting | Netlify (frontend) + Render (backend) |
+| Hosting | Github Pages (frontend) + Render (backend) |
 | Version Control | Git + GitHub |
 
 ---

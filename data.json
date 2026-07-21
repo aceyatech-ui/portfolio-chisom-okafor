@@ -229,21 +229,22 @@
   },
 
   "chatbot": {
-  "greeting": "Hey! 👋 I'm Chisom's assistant. Let me quickly figure out what you need so I can connect you with her directly.",
-  "questions": [
-    "What type of project are you looking for? (website, chatbot, AI system, or something else?)",
-    "What's your budget range?",
-    "When do you need it by?"
-  ],
-  "summaryTemplate": "I need a {project}. Budget: {budget}. Timeline: {timeline}.",
-  "redirectLine": "I really shouldn't be talking to you this long. Let me connect you with Chisom directly!",
-  "pivotAfterMessages": 3,
-  "contactQuickReplies": [
-    { "label": "📱 WhatsApp", "action": "whatsapp" },
-    { "label": "📧 Email", "action": "email" },
-    { "label": "🔗 LinkedIn", "action": "linkedin" },
-    { "label": "💻 GitHub", "action": "github" },
-    { "label": "🔄 Start Over", "action": "reset" }
-  ]
-}
+    "greeting": "Hey! 👋 I'm Chisom's assistant. Let me quickly figure out what you need so I can connect you with her directly.",
+    "questions": [
+      "What type of project are you looking for? (website, chatbot, AI system, or something else?)",
+      "What's your budget range?",
+      "When do you need it by?"
+    ],
+    "summaryTemplate": "I need a {project}. Budget: {budget}. Timeline: {timeline}.",
+    "redirectLine": "I really shouldn't be talking to you this long. Let me connect you with Chisom directly!",
+    "whatsappNumber": "234XXXXXXXXX",
+    "pivotAfterMessages": 3,
+    "contactQuickReplies": [
+      { "label": "📱 WhatsApp", "action": "whatsapp" },
+      { "label": "📧 Email", "action": "email" },
+      { "label": "🔗 LinkedIn", "action": "linkedin" },
+      { "label": "💻 GitHub", "action": "github" },
+      { "label": "🔄 Start Over", "action": "reset" }
+    ]
+  }
 }

@@ -78,15 +78,30 @@
       "name": "Data Scraping Toolkit",
       "description": "A set of Python scrapers and pipelines for collecting, cleaning, and structuring web data automatically.",
       "techStack": ["Python", "Automation"],
-      "status": "completed",
-      "statusLabel": "Completed",
+      "status": "ongoing",
+      "statusLabel": "Ongoing",
       "startDate": "Jan 2026",
       "endDate": "Feb 2026",
       "links": {
         "live": "https://github.com/placeholder/data-scraping-toolkit",
         "github": "https://github.com/placeholder/data-scraping-toolkit"
       }
-    }
+    },
+    {
+      {
+  "id": "scholar-bridge",
+  "name": "Scholar Bridge",
+  "description": "A responsive React front-end for ScholarBridge, a scholarship-matching platform, rebuilt to match the Figma design with the real image components (university crests, student photos, onboarding illustrations) wired into place.Built with Vite + React + React Router. Client-side routing keeps navigation instant and smooth, with no full-page reloads. Done as a capstone project for Tech4Dev, Women Techsters.",
+  "techStack": ["HTML", "CSS", "JavaScript"],
+  "status": "completed",
+  "statusLabel": "Completed",
+  "startDate": "Month Year",
+  "endDate": "Month Year",
+  "links": {
+    "live": "https://project-scholarbridge.vercel.app/",
+    "github": "https://github.com/aceyatech-ui/project-scholarbridge"
+  }
+}
   ],
 
   "ventures": [

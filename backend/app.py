@@ -62,8 +62,9 @@ ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "*")
 
 # ---- Gemini API ----
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
-genai.configure(api_key=GEMINI_API_KEY)
-gemini_model = genai.GenerativeModel("gemini-2.0-flash-lite")
+if GEMINI_API_KEY:
+    genai.configure(api_key=GEMINI_API_KEY)
+    gemini_model = genai.GenerativeModel("gemini-2.0-flash-lite")
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
@@ -233,29 +234,36 @@ def chat():
     if not user_message:
         return jsonify({"reply": "Say something, I'm listening! 😄"}), 400
 
+    # ---- SYSTEM PROMPT ----
     system_prompt = """
-    You are Aceya's assistant. You help people with:
-    - Portfolio websites
-    - Business websites
-    - Chatbot integration
-    - Custom AI (SLMs/LLMs)
-    - Website testing
-    - Security consulting
-    - Feature assessment
+    You are Chisom's assistant. Your job is to:
+    1. Ask 2-3 quick questions to figure out what the user needs
+    2. Give very short answers (1 sentence max) if asked technical questions
+    3. Immediately redirect to Chisom after giving a short answer
+    4. If the user says "I'm not sure" or "I don't know", redirect to Chisom
 
-    You do not state prices. When someone asks about price, tell them to contact Aceya directly for a custom quote.
+    You are NOT here to give detailed answers. You are here to connect people with Chisom.
 
-    Keep responses short (1-2 sentences), friendly, and actionable.
+    When you redirect, say something like:
+    - "Good question! Chisom specializes in that, you know?"
+    - "I really shouldn't be talking to you this long. Let me connect you with her!"
+    - "I could explain, but Chisom would do a much better job. Click below to message her!"
+    - "That's exactly what Chisom is for. Let me get you connected!"
+
+    Always end with an invitation to message Chisom on WhatsApp.
     """
 
     try:
+        if not GEMINI_API_KEY:
+            return jsonify({"reply": "Good question! Chisom would love to help. Let me connect you with her directly."}), 200
+
         response = gemini_model.generate_content(system_prompt + "\nUser: " + user_message)
         reply = response.text.strip()
         if not reply:
-            reply = "Hmm, not sure how to respond. Mind emailing me? aceya.tech@gmail.com 😊"
+            reply = "Good question! Chisom would love to help. Let me connect you with her directly."
         return jsonify({"reply": reply})
     except Exception as e:
-        return jsonify({"reply": "My brain is glitching. But you can reach me at aceya.tech@gmail.com!"}), 200
+        return jsonify({"reply": "Good question! Chisom would love to help. Let me connect you with her directly."}), 200
 
 
 # --------------------------------------------------------------------------

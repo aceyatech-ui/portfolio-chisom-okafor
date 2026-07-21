@@ -13,10 +13,11 @@
          padding:1.2rem; margin-bottom:1rem; }
   .meta{ font-size:0.78rem; opacity:0.65; margin-bottom:0.5rem; }
   .text{ font-size:0.92rem; margin-bottom:1rem; }
-  .actions{ display:flex; gap:0.6rem; }
+  .actions{ display:flex; gap:0.6rem; flex-wrap:wrap; }
   button{ font-family:inherit; padding:0.5rem 1rem; border-radius:8px; border:none; cursor:pointer; font-size:0.82rem; }
   .approve{ background:#34D399; color:#1A1A1A; }
   .reject{ background:#ff8080; color:#1A1A1A; }
+  .delete{ background:#ff4444; color:#FFFFFF; }
   .logout{ background:transparent; border:1px solid rgba(245,245,245,0.3); color:#F5F5F5; float:right; }
   .empty{ opacity:0.5; font-size:0.85rem; }
   a{ color:#CC5500; }
@@ -40,6 +41,9 @@
         </form>
         <form method="POST" action="/reject-review/{{ r.id }}">
           <button type="submit" class="reject">Reject</button>
+        </form>
+        <form method="POST" action="/delete-review/{{ r.id }}">
+          <button type="submit" class="delete">Delete</button>
         </form>
       </div>
     </div>

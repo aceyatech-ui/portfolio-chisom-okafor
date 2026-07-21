@@ -88,7 +88,6 @@
       }
     },
     {
-      {
   "id": "scholar-bridge",
   "name": "Scholar Bridge",
   "description": "A responsive React front-end for ScholarBridge, a scholarship-matching platform, rebuilt to match the Figma design with the real image components (university crests, student photos, onboarding illustrations) wired into place.Built with Vite + React + React Router. Client-side routing keeps navigation instant and smooth, with no full-page reloads. Done as a capstone project for Tech4Dev, Women Techsters.",
@@ -100,9 +99,9 @@
   "links": {
     "live": "https://project-scholarbridge.vercel.app/",
     "github": "https://github.com/aceyatech-ui/project-scholarbridge"
-  }
-}
-],
+      }
+    }
+  ],
 
   "ventures": [
     {

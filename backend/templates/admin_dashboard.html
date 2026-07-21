@@ -57,6 +57,11 @@
     <div class="card">
       <div class="meta">{{ r.name }} · {{ r.date }}</div>
       <div class="text">"{{ r.review }}"</div>
+      <div class="actions">
+        <form method="POST" action="/delete-review/{{ r.id }}">
+          <button type="submit" class="delete">Delete</button>
+        </form>
+      </div>
     </div>
   {% endfor %}
 </body>

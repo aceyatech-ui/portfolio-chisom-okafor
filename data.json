@@ -12,7 +12,13 @@
       "email": "aceyathedev@gmail.com",
       "whatsapp": "https://api.whatsapp.com/message/DLE3UWZO6VBTI1",
       "linkedin": "https://www.linkedin.com/in/chisom-okafor-5859b93a8",
-      "github": "https://github.com/aceyatech-ui"
+      "github": "https://github.com/aceyatech-ui",
+      "logos": {
+        "email": "assets/logos/email.svg",
+        "whatsapp": "assets/logos/whatsapp.svg",
+        "linkedin": "assets/logos/linkedin.svg",
+        "github": "assets/logos/github.svg"
+      }
     }
   },
 
@@ -223,34 +229,21 @@
   },
 
   "chatbot": {
-    "greeting": "Hey! 👋 I'm Chisom's assistant. Let's quickly pinpoint what you need so I can connect you with Chisom!",
-    "systemPrompt": "Keep responses short (1-2 sentences). Help the user define their project needs in 2-3 quick questions max, then immediately encourage them to use the contact option to reach Chisom.",
-    "pivotMessage": "I've got a great idea of what you need! The best next step is to reach out to Chisom directly so you can get started.",
-    "pivotAfterMessages": 3,
-    "persistence": {
-      "autoShowContactAfterPivot": true,
-      "followUpPrompt": "Ready to bring this project to life? Let's get you connected with Chisom."
-    },
-    "availability": {
-      "days": "I'm available Monday to Saturday. Sundays are offline. Expect a response on Monday.",
-      "responseTime": "Within 24 hours on weekdays."
-    },
-    "fallback": "I've gathered enough details to get you started! Let's get you in direct contact with Chisom.",
-    "blockedKeywords": [
-      "password",
-      "secret",
-      "private",
-      "confidential",
-      "hidden",
-      "backdoor",
-      "send"
-    ],
-    "quickReplies": [
-      { "label": "💻 Skills", "action": "skills" },
-      { "label": "📁 Projects", "action": "projects" },
-      { "label": "🎓 Programs & Certs", "action": "programs" },
-      { "label": "📬 Contact Chisom", "action": "contact" },
-      { "label": "🕒 Availability", "action": "availability" }
-    ]
-  }
+  "greeting": "Hey! 👋 I'm Chisom's assistant. Let me quickly figure out what you need so I can connect you with her directly.",
+  "questions": [
+    "What type of project are you looking for? (website, chatbot, AI system, or something else?)",
+    "What's your budget range?",
+    "When do you need it by?"
+  ],
+  "summaryTemplate": "I need a {project}. Budget: {budget}. Timeline: {timeline}.",
+  "redirectLine": "I really shouldn't be talking to you this long. Let me connect you with Chisom directly!",
+  "pivotAfterMessages": 3,
+  "contactQuickReplies": [
+    { "label": "📱 WhatsApp", "action": "whatsapp" },
+    { "label": "📧 Email", "action": "email" },
+    { "label": "🔗 LinkedIn", "action": "linkedin" },
+    { "label": "💻 GitHub", "action": "github" },
+    { "label": "🔄 Start Over", "action": "reset" }
+  ]
+}
 }

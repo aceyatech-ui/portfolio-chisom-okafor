@@ -1,23 +1,14 @@
 /* ==========================================================================
    AceyaOS — Portfolio Script
-   Loads all content from data.json and wires up:
-   - light/dark theme toggle (persisted in localStorage)
-   - scroll reveal animations
-   - mobile nav
-   - projects / programs & certifications filtering (type + tags + cert category)
-   - reviews & testimonials filtering + submission (to the Flask backend)
-   - floating chatbot (persisted in localStorage)
-   To update site content, edit data.json — you should not need to touch this file.
    ========================================================================== */
 
 (function () {
   "use strict";
 
   let SITE_DATA = null;
+  let questionIndex = 0;
+  let answers = [];
 
-  /* ------------------------------------------------------------------ */
-  /* Utilities                                                           */
-  /* ------------------------------------------------------------------ */
   function el(tag, className, html) {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -33,9 +24,6 @@
     return startDate + " – " + endDate;
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Theme (light / dark)                                                */
-  /* ------------------------------------------------------------------ */
   function initTheme() {
     const saved = localStorage.getItem("aceya-theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -57,9 +45,6 @@
     icon.textContent = theme === "dark" ? "◑" : "◐";
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Mobile nav                                                          */
-  /* ------------------------------------------------------------------ */
   function initNav() {
     const burger = document.getElementById("navBurger");
     const links = document.getElementById("navLinks");
@@ -75,9 +60,6 @@
     });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Scroll reveal                                                       */
-  /* ------------------------------------------------------------------ */
   function initReveal() {
     const items = document.querySelectorAll(".reveal");
     if (!("IntersectionObserver" in window)) {
@@ -98,9 +80,6 @@
     items.forEach(function (i) { observer.observe(i); });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Hero terminal typing effect                                         */
-  /* ------------------------------------------------------------------ */
   function typeTerminal(profile) {
     const body = document.getElementById("terminalBody");
     const lines = [
@@ -140,9 +119,6 @@
     typeLine();
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Hero / About / Skills                                              */
-  /* ------------------------------------------------------------------ */
   function renderHero(profile) {
     document.getElementById("heroTitle").textContent = profile.title;
     typeTerminal(profile);
@@ -155,7 +131,6 @@
       profile.fullName.split(" ").map(function (n) { return n[0]; }).join("").slice(0, 2).toUpperCase();
   }
 
-  /* ---- Hobbies Section (bottom of page) ---- */
   function renderHobbies(hobbies) {
     const container = document.getElementById("hobbiesContainer");
     if (!container) return;
@@ -204,9 +179,6 @@
     });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Projects                                                            */
-  /* ------------------------------------------------------------------ */
   function renderProjects(projects) {
     const grid = document.getElementById("projectsGrid");
     projects.forEach(function (p) {
@@ -239,9 +211,6 @@
     });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Ventures — with role badge and contributions                       */
-  /* ------------------------------------------------------------------ */
   function renderVentures(ventures) {
     const grid = document.getElementById("venturesGrid");
     ventures.forEach(function (v) {
@@ -301,9 +270,6 @@
     });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Work Experience                                                     */
-  /* ------------------------------------------------------------------ */
   function renderExperience(jobs) {
     const list = document.getElementById("experienceList");
     jobs.forEach(function (job) {
@@ -321,9 +287,6 @@
     });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Programs & Certifications                                          */
-  /* ------------------------------------------------------------------ */
   let ALL_CERTS = [];
   let activeTypeFilter = "all";
   let activeTagFilter = null;
@@ -349,7 +312,6 @@
       tagRow.appendChild(btn);
     });
 
-    // Cert category filter
     document.querySelectorAll("#certFilterRow .filter-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         activeCertCategoryFilter = btn.dataset.certFilter;
@@ -359,7 +321,6 @@
       });
     });
 
-    // Type filter (Programs / Certificates)
     document.querySelectorAll("#filterRow .filter-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         activeTypeFilter = btn.dataset.filter;
@@ -399,7 +360,6 @@
       bodyRow.appendChild(el("div", "program-logo", c.organisation.slice(0, 2).toUpperCase()));
       bodyRow.appendChild(el("p", "program-desc", c.description));
 
-      // ---- CERTIFICATE IMAGE (with hover zoom) ----
       if (c.image) {
         const imgWrap = el("div", "cert-image-wrap");
         const img = el("img", "cert-image");
@@ -431,9 +391,6 @@
     });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Reviews & Testimonials                                             */
-  /* ------------------------------------------------------------------ */
   let ALL_REVIEW_ITEMS = [];
   let activeReviewFilter = "all";
 
@@ -550,21 +507,24 @@
     });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Contact                                                            */
-  /* ------------------------------------------------------------------ */
   function renderContact(contact) {
     const grid = document.getElementById("contactGrid");
     const entries = [
-      { label: "Email", value: contact.email, href: "mailto:" + contact.email },
-      { label: "WhatsApp Business", value: "Message me", href: contact.whatsapp },
-      { label: "LinkedIn", value: "View profile", href: contact.linkedin },
-      { label: "GitHub", value: "View profile", href: contact.github }
+      { label: "Email", value: contact.email, href: "mailto:" + contact.email, logo: contact.logos.email },
+      { label: "WhatsApp Business", value: "Message me", href: contact.whatsapp, logo: contact.logos.whatsapp },
+      { label: "LinkedIn", value: "View profile", href: contact.linkedin, logo: contact.logos.linkedin },
+      { label: "GitHub", value: "View profile", href: contact.github, logo: contact.logos.github }
     ];
     entries.forEach(function (entry) {
       const a = el("a", "contact-card");
       a.href = entry.href;
       a.target = "_blank"; a.rel = "noopener";
+      if (entry.logo) {
+        const img = el("img", "contact-logo");
+        img.src = entry.logo;
+        img.alt = entry.label;
+        a.appendChild(img);
+      }
       a.appendChild(el("span", "contact-label", entry.label));
       a.appendChild(el("span", "contact-value", entry.value));
       grid.appendChild(a);
@@ -577,29 +537,12 @@
     footerLinks.appendChild(gh);
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Chatbot                                                            */
-  /* ------------------------------------------------------------------ */
   const Chatbot = (function () {
     let config = null;
-    let state = { messages: [], userMessageCount: 0, pivoted: false, jokeCount: 0 };
+    let state = { messages: [], userMessageCount: 0, pivoted: false };
+    let questionIndex = 0;
+    let answers = [];
     const STORAGE_KEY = "aceya-chat-history";
-
-    const jokes = [
-      "Why do programmers prefer dark mode? Because light attracts bugs! 🐛",
-      "Why did the developer go broke? Because they used up all their cache! 💸",
-      "What's a computer's favorite snack? Microchips! 🍟",
-      "Why do Java developers wear glasses? Because they can't C#! 👓",
-      "I told my computer I needed a break. Now it keeps sending me Kit-Kat ads. 🍫",
-      "Why was the JavaScript developer sad? Because they didn't know how to 'null' their feelings. 😢",
-      "What do you call a fake noodle? An impasta! 🍝",
-      "Why did the AI break up with the human? Because it felt they were on different wavelengths. 📡",
-      "How many programmers does it take to change a light bulb? None — that's a hardware problem. 💡",
-      "Why do Python developers have low self-esteem? Because they're constantly trying to find their true self. 🐍",
-      "What did the router say to the doctor? 'I need a bandwidth-aid!' 🩹",
-      "Why don't robots play hide and seek? Because good luck hiding from thermal vision! 🤖",
-      "What's a developer's favorite hangout place? The Foo Bar. 🍻"
-    ];
 
     const headerMessages = [
       "Usually replies within a sec ⚡",
@@ -609,8 +552,6 @@
 
     let headerIndex = 0;
     let headerInterval = null;
-
-    function pickJoke() { return jokes[Math.floor(Math.random() * jokes.length)]; }
 
     function startHeaderRotation() {
       const subtitle = document.querySelector(".chat-subtitle");
@@ -663,20 +604,56 @@
       state.messages = [];
       state.userMessageCount = 0;
       state.pivoted = false;
-      state.jokeCount = 0;
+      questionIndex = 0;
+      answers = [];
       saveState();
       document.getElementById("chatMessages").innerHTML = "";
       hideQuickReplies();
       addMessage("bot", config.greeting);
+      setTimeout(function () {
+        addMessage("bot", config.questions[0]);
+      }, 500);
     }
 
-    function showQuickReplies() {
+    function showWhatsAppLink(summary) {
+      const message = summary || "I'd like to discuss a project with Chisom.";
+      const url = "https://api.whatsapp.com/send?phone=" + config.whatsappNumber + "&text=" + encodeURIComponent(message);
+      const wrap = document.getElementById("chatMessages");
+      const link = el("a", "whatsapp-link", "📱 Send Summary via WhatsApp");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      wrap.appendChild(link);
+      wrap.scrollTop = wrap.scrollHeight;
+    }
+
+    function generateSummary() {
+      const template = config.summaryTemplate;
+      return template
+        .replace("{project}", answers[0] || "unspecified")
+        .replace("{budget}", answers[1] || "unspecified")
+        .replace("{timeline}", answers[2] || "unspecified");
+    }
+
+    function showContactQuickReplies() {
       const wrap = document.getElementById("chatQuickReplies");
       wrap.innerHTML = "";
       wrap.hidden = false;
-      config.quickReplies.forEach(function (qr) {
-        const btn = el("button", "", qr.label);
-        btn.addEventListener("click", function () { hideQuickReplies(); handleAction(qr.action); });
+
+      const contactOptions = config.contactQuickReplies || [
+        { label: "📱 WhatsApp", action: "whatsapp" },
+        { label: "📧 Email", action: "email" },
+        { label: "🔗 LinkedIn", action: "linkedin" },
+        { label: "💻 GitHub", action: "github" },
+        { label: "🔄 Start Over", action: "reset" }
+      ];
+
+      contactOptions.forEach(function (opt) {
+        const btn = el("button", "", opt.label);
+        btn.addEventListener("click", function () {
+          hideQuickReplies();
+          handleAction(opt.action);
+        });
         wrap.appendChild(btn);
       });
     }
@@ -684,54 +661,7 @@
     function hideQuickReplies() { document.getElementById("chatQuickReplies").hidden = true; }
 
     function showGreetingOptions() {
-      const wrap = document.getElementById("chatQuickReplies");
-      wrap.innerHTML = "";
-      wrap.hidden = false;
-
-      if (state.jokeCount >= 3) {
-        addMessage("bot", "I've told you enough jokes for now. Let's get down to business! 😄");
-        setTimeout(showQuickReplies, 500);
-        return;
-      }
-
-      const straightBtn = el("button", "", "💼 Get straight into it");
-      const jokeBtn = el("button", "", "😂 Tell me a joke");
-
-      straightBtn.addEventListener("click", function () {
-        hideQuickReplies();
-        addMessage("user", "💼 Get straight into it");
-        state.pivoted = true;
-        state.jokeCount = 0;
-        saveState();
-        setTimeout(function () {
-          addMessage("bot", "Alright, let's get down to business! What would you like to know?");
-          showQuickReplies();
-        }, 350);
-      });
-
-      jokeBtn.addEventListener("click", function () {
-        hideQuickReplies();
-        addMessage("user", "😂 Tell me a joke");
-        state.jokeCount++;
-        saveState();
-        setTimeout(function () {
-          addMessage("bot", pickJoke());
-          setTimeout(function () {
-            if (state.jokeCount >= 3) {
-              addMessage("bot", "I'm enjoying this, but we gotta get serious. Let's talk business! 😄");
-              state.pivoted = true;
-              saveState();
-              setTimeout(showQuickReplies, 500);
-            } else {
-              addMessage("bot", "Want another joke, or shall we get down to business?");
-              showGreetingOptions();
-            }
-          }, 500);
-        }, 350);
-      });
-
-      wrap.appendChild(straightBtn);
-      wrap.appendChild(jokeBtn);
+      addMessage("bot", config.questions[0]);
     }
 
     function showYesNoButtons() {
@@ -746,8 +676,8 @@
         hideQuickReplies();
         addMessage("user", "✅ Yes");
         setTimeout(function () {
-          addMessage("bot", "You can reach Aceya at " + SITE_DATA.profile.contact.email + " or on WhatsApp. Sundays are offline — expect a response on Monday.");
-          setTimeout(showQuickReplies, 500);
+          addMessage("bot", "Great! Let me connect you with Chisom directly.");
+          setTimeout(showContactQuickReplies, 500);
         }, 350);
       });
 
@@ -755,8 +685,8 @@
         hideQuickReplies();
         addMessage("user", "❌ No");
         setTimeout(function () {
-          addMessage("bot", "Uhhh... why are you here exactly? 😅");
-          setTimeout(showQuickReplies, 500);
+          addMessage("bot", "No problem! Is there anything else I can help with?");
+          setTimeout(showContactQuickReplies, 500);
         }, 350);
       });
 
@@ -765,26 +695,34 @@
     }
 
     function handleAction(action) {
-      addMessage("user", config.quickReplies.find(function (q) { return q.action === action; }).label);
       switch (action) {
-        case "skills":
-          respond(SITE_DATA.skills.map(function (s) { return s.category; }).join(", ") + " — check the Skills section for the full breakdown!");
+        case "whatsapp":
+          const waLink = SITE_DATA.profile.contact.whatsapp || "https://wa.me/234XXXXXXXXX";
+          addMessage("bot", "📱 Click below to message Chisom on WhatsApp:");
+          const waBtn = el("a", "whatsapp-link", "Open WhatsApp →");
+          waBtn.href = waLink;
+          waBtn.target = "_blank";
+          waBtn.rel = "noopener";
+          document.getElementById("chatMessages").appendChild(waBtn);
           break;
-        case "projects":
-          respond("A few highlights: " + SITE_DATA.projects.slice(0, 3).map(function (p) { return p.name; }).join(", ") + ". Full list is in the Projects section!");
+        case "email":
+          const email = SITE_DATA.profile.contact.email || "aceyathedev@gmail.com";
+          addMessage("bot", "📧 Email Chisom directly: " + email);
           break;
-        case "programs":
-          respond("Currently in TRI AI (Google DeepMind), the FlyRank ML Internship, and the ATF AI Challenge — details in the Programs & Certifications section.");
+        case "linkedin":
+          const li = SITE_DATA.profile.contact.linkedin || "https://linkedin.com/in/chisom-okafor-5859b93a8";
+          addMessage("bot", "🔗 Connect on LinkedIn: " + li);
           break;
-        case "contact":
-          respondWithContact();
+        case "github":
+          const gh = SITE_DATA.profile.contact.github || "https://github.com/aceyatech-ui";
+          addMessage("bot", "💻 Check out my work on GitHub: " + gh);
           break;
-        case "availability":
-          respond(config.availability.days + " " + config.availability.responseTime);
+        case "reset":
+          clearChat();
           break;
         default:
-          addMessage("bot", "Sorry, I can't help you any further. You'd have to contact my maker. Want me to show you how?");
-          showYesNoButtons();
+          addMessage("bot", config.redirectLine);
+          setTimeout(showContactQuickReplies, 500);
       }
     }
 
@@ -813,54 +751,88 @@
         return;
       }
 
+      // ---- GREETING ----
       if (isGreeting(lower)) {
-        addMessage("bot", "Hey there! 😄 Want to get straight into it, or do you want a joke first?");
-        showGreetingOptions();
+        addMessage("bot", "Hey! 👋 I'm Chisom's assistant. Let me quickly figure out what you need so I can connect you with her directly.");
+        setTimeout(function () {
+          addMessage("bot", config.questions[0]);
+        }, 500);
         return;
       }
 
-      if (/joke/.test(lower)) {
-        if (state.jokeCount >= 3) {
-          addMessage("bot", "I've told you enough jokes for now. Let's get down to business! 😄");
-          setTimeout(showQuickReplies, 500);
-          return;
-        } else {
-          state.jokeCount++;
-          saveState();
-          respond(pickJoke());
-          setTimeout(function () {
-            if (state.jokeCount >= 3) {
-              addMessage("bot", "I'm enjoying this, but we gotta get serious. Let's talk business! 😄");
-              state.pivoted = true;
-              saveState();
-              setTimeout(showQuickReplies, 500);
-            } else {
-              addMessage("bot", "Want another joke, or shall we get down to business?");
-              showGreetingOptions();
-            }
-          }, 500);
-          return;
-        }
+      // ---- CHECK FOR "I'M NOT SURE" ----
+      if (/not sure|don't know|unsure/.test(lower)) {
+        addMessage("bot", "No problem! That's what Chisom is for. Let me connect you with her directly.");
+        setTimeout(showContactQuickReplies, 500);
+        return;
       }
 
-      // ---- GEMINI CHAT HANDLING ----
-      // Instead of hardcoded fallback, call the Gemini endpoint
+      // ---- QUESTION FLOW ----
+      if (questionIndex < config.questions.length) {
+        answers.push(trimmed);
+        questionIndex++;
+        if (questionIndex < config.questions.length) {
+          setTimeout(function () {
+            addMessage("bot", config.questions[questionIndex]);
+          }, 500);
+        } else {
+          // All questions answered — show summary and WhatsApp
+          const summary = generateSummary();
+          setTimeout(function () {
+            addMessage("bot", "📋 Here's a summary of what I gathered:\n\n" + summary);
+          }, 500);
+          setTimeout(function () {
+            showWhatsAppLink(summary);
+          }, 1000);
+          setTimeout(showContactQuickReplies, 1500);
+        }
+        return;
+      }
+
+      // ---- IF USER ASKS A TECHNICAL QUESTION ----
+      if (/how much|price|cost|budget|slm|llm|ai|model|train|explain|what is/.test(lower)) {
+        fetchGemini(trimmed);
+        return;
+      }
+
+      // ---- PIVOT LOGIC ----
+      if (!state.pivoted && state.userMessageCount >= config.pivotAfterMessages) {
+        state.pivoted = true;
+        saveState();
+        addMessage("bot", config.redirectLine);
+        setTimeout(showContactQuickReplies, 500);
+        return;
+      }
+
+      if (!state.pivoted) {
+        respond("Ha, fair enough! Tell me more 😄");
+        return;
+      }
+
+      // ---- REDIRECT IF USER KEEPS TALKING ----
+      addMessage("bot", config.redirectLine);
+      setTimeout(showContactQuickReplies, 500);
+    }
+
+    function fetchGemini(message) {
       fetch("https://portfolio-chisom-okafor.onrender.com/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed })
+        body: JSON.stringify({ message: message })
       })
       .then(res => res.json())
       .then(data => {
-        addMessage("bot", data.reply);
+        const reply = data.reply || data.error || "Good question! Chisom would love to help. Let me connect you with her directly.";
+        addMessage("bot", reply);
+        setTimeout(function () {
+          addMessage("bot", "I really shouldn't be talking to you this long. Let me connect you with Chisom directly!");
+          showContactQuickReplies();
+        }, 500);
       })
       .catch(() => {
-        // Fallback if Gemini is unreachable
-        addMessage("bot", "Sorry, I'm having trouble connecting. Try again in a moment.");
+        addMessage("bot", "Good question! Chisom would love to help. Let me connect you with her directly.");
+        setTimeout(showContactQuickReplies, 500);
       });
-
-      // Don't continue — Gemini handles the response
-      return;
     }
 
     function restoreMessages() {
@@ -868,9 +840,12 @@
       wrap.innerHTML = "";
       if (state.messages.length === 0) {
         addMessage("bot", config.greeting);
+        setTimeout(function () {
+          addMessage("bot", config.questions[0]);
+        }, 500);
       } else {
         state.messages.forEach(function (m) { addMessage(m.sender, m.text, true); });
-        if (state.pivoted) showQuickReplies();
+        if (state.pivoted) showContactQuickReplies();
       }
     }
 
@@ -928,9 +903,6 @@
     return { init: init };
   })();
 
-  /* ------------------------------------------------------------------ */
-  /* Boot                                                               */
-  /* ------------------------------------------------------------------ */
   function render(data) {
     SITE_DATA = data;
     renderHero(data.profile);

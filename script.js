@@ -735,6 +735,27 @@
       }, 350);
     }
 
+    function fetchGemini(message) {
+      fetch("https://portfolio-chisom-okafor.onrender.com/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: message })
+      })
+      .then(res => res.json())
+      .then(data => {
+        const reply = data.reply || data.error || "Good question! Chisom would love to help. Let me connect you with her directly.";
+        addMessage("bot", reply);
+        setTimeout(function () {
+          addMessage("bot", "I really shouldn't be talking to you this long. Let me connect you with Chisom directly!");
+          showContactQuickReplies();
+        }, 500);
+      })
+      .catch(() => {
+        addMessage("bot", "Good question! Chisom would love to help. Let me connect you with her directly.");
+        setTimeout(showContactQuickReplies, 500);
+      });
+    }
+
     function handleUserText(text) {
       const trimmed = text.trim();
       if (trimmed.toLowerCase() === "clear") { clearChat(); return; }
@@ -812,27 +833,6 @@
       // ---- REDIRECT IF USER KEEPS TALKING ----
       addMessage("bot", config.redirectLine);
       setTimeout(showContactQuickReplies, 500);
-    }
-
-    function fetchGemini(message) {
-      fetch("https://portfolio-chisom-okafor.onrender.com/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: message })
-      })
-      .then(res => res.json())
-      .then(data => {
-        const reply = data.reply || data.error || "Good question! Chisom would love to help. Let me connect you with her directly.";
-        addMessage("bot", reply);
-        setTimeout(function () {
-          addMessage("bot", "I really shouldn't be talking to you this long. Let me connect you with Chisom directly!");
-          showContactQuickReplies();
-        }, 500);
-      })
-      .catch(() => {
-        addMessage("bot", "Good question! Chisom would love to help. Let me connect you with her directly.");
-        setTimeout(showContactQuickReplies, 500);
-      });
     }
 
     function restoreMessages() {

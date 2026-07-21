@@ -14,9 +14,11 @@ POST <ADMIN_URL>              -> verifies password, starts admin session
 GET  <ADMIN_URL>/dashboard    -> admin dashboard (session required)
 POST /approve-review/<id>    -> moves a review from pending -> approved
 POST /reject-review/<id>     -> deletes a review from pending
+POST /delete-review/<id>     -> deletes a review from both pending and approved
 GET  /api/reviews             -> public: returns all approved reviews (JSON)
 POST /admin-logout            -> clears the admin session
 POST /chat                    -> Gemini AI chat endpoint (for the chatbot)
+GET  /ping                    -> tiny response for cron-job.org
 
 Run locally
 -----------
@@ -200,6 +202,20 @@ def reject_review(review_id):
     return redirect(ADMIN_URL + "/dashboard")
 
 
+@app.route("/delete-review/<review_id>", methods=["POST"])
+@admin_required
+def delete_review(review_id):
+    pending = get_pending()
+    pending = [r for r in pending if r["id"] != review_id]
+    _write_json(PENDING_FILE, pending)
+
+    approved = get_approved()
+    approved = [r for r in approved if r["id"] != review_id]
+    _write_json(REVIEWS_FILE, approved)
+
+    return redirect(ADMIN_URL + "/dashboard")
+
+
 @app.route("/admin-logout", methods=["POST"])
 def admin_logout():
     session.pop("is_admin", None)
@@ -215,25 +231,31 @@ def chat():
     user_message = data.get("message", "").strip()
 
     if not user_message:
-        return jsonify({"error": "Message is required"}), 400
+        return jsonify({"reply": "Say something, I'm listening! 😄"}), 400
 
     system_prompt = """
     You are Aceya's assistant. You help people with:
     - Portfolio websites
     - Business websites
-    - Collaboration / working together
+    - Chatbot integration
+    - Custom AI (SLMs/LLMs)
+    - Website testing
+    - Security consulting
+    - Feature assessment
+
+    You do not state prices. When someone asks about price, tell them to contact Aceya directly for a custom quote.
 
     Keep responses short (1-2 sentences), friendly, and actionable.
-    If you don't know something, say so honestly.
-    Do not mention that you are an AI.
     """
 
     try:
         response = gemini_model.generate_content(system_prompt + "\nUser: " + user_message)
         reply = response.text.strip()
+        if not reply:
+            reply = "Hmm, not sure how to respond. Mind emailing me? aceya.tech@gmail.com 😊"
         return jsonify({"reply": reply})
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"reply": "My brain is glitching. But you can reach me at aceya.tech@gmail.com!"}), 200
 
 
 # --------------------------------------------------------------------------
@@ -242,6 +264,11 @@ def chat():
 @app.route("/", methods=["GET"])
 def health():
     return jsonify({"status": "ok", "service": "aceya-portfolio-backend"})
+
+
+@app.route("/ping", methods=["GET"])
+def ping():
+    return "ok", 200
 
 
 if __name__ == "__main__":

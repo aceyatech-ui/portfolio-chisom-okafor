@@ -3,66 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard</title>
+<title>Admin Login</title>
 <meta name="robots" content="noindex, nofollow">
 <style>
-  body{ margin:0; font-family: 'JetBrains Mono', monospace; background:#0A0A0A; color:#F5F5F5; padding:2rem; }
-  h1{ font-size:1.3rem; }
-  h2{ font-size:1rem; color:#CC5500; margin-top:2.5rem; }
-  .card{ background:#151515; border:1px solid rgba(245,245,245,0.12); border-radius:12px;
-         padding:1.2rem; margin-bottom:1rem; }
-  .meta{ font-size:0.78rem; opacity:0.65; margin-bottom:0.5rem; }
-  .text{ font-size:0.92rem; margin-bottom:1rem; }
-  .actions{ display:flex; gap:0.6rem; flex-wrap:wrap; }
-  button{ font-family:inherit; padding:0.5rem 1rem; border-radius:8px; border:none; cursor:pointer; font-size:0.82rem; }
-  .approve{ background:#34D399; color:#1A1A1A; }
-  .reject{ background:#ff8080; color:#1A1A1A; }
-  .delete{ background:#ff4444; color:#FFFFFF; }
-  .logout{ background:transparent; border:1px solid rgba(245,245,245,0.3); color:#F5F5F5; float:right; }
-  .empty{ opacity:0.5; font-size:0.85rem; }
-  a{ color:#CC5500; }
+  body{ margin:0; font-family: 'JetBrains Mono', monospace; background:#0A0A0A; color:#F5F5F5;
+        display:flex; align-items:center; justify-content:center; min-height:100vh; }
+  .card{ background:#151515; border:1px solid rgba(245,245,245,0.12); border-radius:14px;
+         padding:2rem; width:100%; max-width:340px; }
+  h1{ font-size:1.1rem; margin:0 0 1.2rem; }
+  input{ width:100%; box-sizing:border-box; padding:0.7rem 0.9rem; border-radius:8px;
+         border:1px solid rgba(245,245,245,0.2); background:#0A0A0A; color:#F5F5F5; margin-bottom:1rem; }
+  button{ width:100%; padding:0.75rem; border-radius:8px; border:none; background:#888888;
+          color:#1A1A1A; font-family:inherit; font-weight:600; cursor:pointer; }
+  .error{ color:#ff8080; font-size:0.85rem; margin-bottom:1rem; }
 </style>
 </head>
 <body>
-  <form method="POST" action="/admin-logout"><button type="submit" class="logout">Log out</button></form>
-  <h1>// aceya admin</h1>
-
-  <h2>Pending reviews ({{ pending|length }})</h2>
-  {% if not pending %}
-    <p class="empty">Nothing waiting for approval.</p>
-  {% endif %}
-  {% for r in pending %}
-    <div class="card">
-      <div class="meta">{{ r.name }} · {{ r.date }} {% if r.linkedin_url %}· <a href="{{ r.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}</div>
-      <div class="text">"{{ r.review }}"</div>
-      <div class="actions">
-        <form method="POST" action="/approve-review/{{ r.id }}">
-          <button type="submit" class="approve">Approve</button>
-        </form>
-        <form method="POST" action="/reject-review/{{ r.id }}">
-          <button type="submit" class="reject">Reject</button>
-        </form>
-        <form method="POST" action="/delete-review/{{ r.id }}">
-          <button type="submit" class="delete">Delete</button>
-        </form>
-      </div>
-    </div>
-  {% endfor %}
-
-  <h2>Approved reviews ({{ approved|length }})</h2>
-  {% if not approved %}
-    <p class="empty">None approved yet.</p>
-  {% endif %}
-  {% for r in approved %}
-    <div class="card">
-      <div class="meta">{{ r.name }} · {{ r.date }}</div>
-      <div class="text">"{{ r.review }}"</div>
-      <div class="actions">
-        <form method="POST" action="/delete-review/{{ r.id }}">
-          <button type="submit" class="delete">Delete</button>
-        </form>
-      </div>
-    </div>
-  {% endfor %}
+  <div class="card">
+    <h1>// admin access</h1>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <form method="POST">
+      <input type="text" name="username" placeholder="Username" autofocus required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Log in</button>
+    </form>
+  </div>
 </body>
 </html>

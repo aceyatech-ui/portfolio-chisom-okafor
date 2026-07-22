@@ -88,17 +88,30 @@
       }
     },
     {
-  "id": "scholar-bridge",
-  "name": "Scholar Bridge",
-  "description": "A responsive React front-end for ScholarBridge, a scholarship-matching platform, rebuilt to match the Figma design with the real image components (university crests, student photos, onboarding illustrations) wired into place.Built with Vite + React + React Router. Client-side routing keeps navigation instant and smooth, with no full-page reloads. Done as a capstone project for Tech4Dev, Women Techsters.",
-  "techStack": ["HTML", "CSS", "JavaScript"],
-  "status": "completed",
-  "statusLabel": "Completed",
-  "startDate": "Month Year",
-  "endDate": "Month Year",
-  "links": {
-    "live": "https://project-scholarbridge.vercel.app/",
-    "github": "https://github.com/aceyatech-ui/project-scholarbridge"
+      "id": "scholar-bridge",
+      "name": "Scholar Bridge",
+      "description": "A responsive React front-end for ScholarBridge, a scholarship-matching platform, rebuilt to match the Figma design with the real image components (university crests, student photos, onboarding illustrations) wired into place. Built with Vite + React + React Router. Client-side routing keeps navigation instant and smooth, with no full-page reloads. Done as a capstone project for Tech4Dev, Women Techsters.",
+      "techStack": ["HTML", "CSS", "JavaScript"],
+      "status": "completed",
+      "statusLabel": "Completed",
+      "startDate": "Month Year",
+      "endDate": "Month Year",
+      "links": {
+        "live": "https://project-scholarbridge.vercel.app/",
+        "github": "https://github.com/aceyatech-ui/project-scholarbridge"
+      }
+    },
+    {
+      "id": "syncorrazon-frontend",
+      "name": "SynCorrazon Frontend",
+      "description": "Built and debugged a frontend for people to watch movies together. Still a work in progress — ironing out the kinks and making the experience seamless.",
+      "techStack": ["React", "CSS", "JavaScript"],
+      "status": "ongoing",
+      "statusLabel": "In progress",
+      "startDate": "Jul 2026",
+      "endDate": "Ongoing",
+      "links": {
+        "live": "https://syncorrazon-frontend.vercel.app/"
       }
     }
   ],
@@ -114,10 +127,9 @@
       "endDate": "Ongoing",
       "socials": {
         "instagram": "https://instagram.com/placeholder",
-        "linkedin": "https://linkedin.com/company/placeholder",
-        "twitter": "https://twitter.com/placeholder"
+        "linkedin": " ",
       },
-      "website": "https://syncorrazon.example.com"
+      "website": "https://syncorrazon-frontend.vercel.app/"
     },
     {
       "name": "Kaizora Academy",
@@ -129,6 +141,8 @@
       "endDate": "Ongoing",
       "socials": {
         "facebook": "https://web.facebook.com/profile.php?id=100064973045551"
+        "instagram": "https://www.instagram.com/kaizoraacademy?igsh=bjFjcjJ4cGdvdzQ4",
+        "linkedin": "https://www.linkedin.com/company/kaizora-academy/",
       }
     }
   ],
@@ -228,7 +242,7 @@
       "endDate": "Jun 2026",
       "status": "completed",
       "statusLabel": "Completed",
-      "programUrl": null,
+      "programUrl": "https://www.skills.google/paths/3135/course_templates/1341",
       "certificateUrl": "https://www.skills.google/public_profiles/0cd9b44c-7f3d-477b-b3ef-28362099795f/badges/25109300"
     }
   ],
@@ -243,15 +257,15 @@
   },
 
   "chatbot": {
-    "greeting": "Hey! 👋 I'm Chisom's assistant. Let me quickly figure out what you need so I can connect you with her directly.",
+    "greeting": "Hey! 👋 I'm Chisom's assistant. Here to help you figure out what you need so I can connect you with her directly.",
+    "blockedKeywords": [],
     "questions": [
       "What type of project are you looking for? (website, chatbot, AI system, or something else?)",
       "What's your budget range?",
       "When do you need it by?"
     ],
     "summaryTemplate": "I need a {project}. Budget: {budget}. Timeline: {timeline}.",
-    "redirectLine": "I really shouldn't be talking to you this long. Let me connect you with Chisom directly!",
-    "whatsappNumber": "234XXXXXXXXX",
+    "redirectLine": "Okay then, let me connect you with Chisom directly!",
     "pivotAfterMessages": 3,
     "contactQuickReplies": [
       { "label": "📱 WhatsApp", "action": "whatsapp" },

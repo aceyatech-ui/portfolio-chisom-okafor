@@ -1,11 +1,8 @@
 /* ==========================================================================
    AceyaOS — Portfolio Stylesheet
-   Design system: terminal/build-log aesthetic on a cream/vanta-black base.
-   Edit CSS variables below to retheme. Content itself lives in data.json.
    ========================================================================== */
 
 :root{
-  /* ---- Light mode (default) ---- */
   --bg:            #FDF6E3;
   --bg-raised:     #FFFFFF;
   --accent:        #CC5500;
@@ -16,7 +13,6 @@
   --shadow:        rgba(26,26,26,0.08);
   --code-bg:       #F1E8D0;
 
-  /* ---- Status badges ---- */
   --status-progress-bg:  #F59E0B;
   --status-progress-text: #1A1A1A;
   --status-view-bg:      #3B82F6;
@@ -24,7 +20,6 @@
   --status-complete-bg:  #10B981;
   --status-complete-text: #FFFFFF;
 
-  /* ---- Type ---- */
   --font-display: 'Space Grotesk', sans-serif;
   --font-body:    'Inter', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
@@ -108,7 +103,6 @@ h1,h2,h3{
   scroll-margin-top: 80px;
 }
 
-/* ---------- scroll reveal ---------- */
 .reveal{
   opacity: 0;
   transform: translateY(18px);
@@ -119,7 +113,6 @@ h1,h2,h3{
   transform: translateY(0);
 }
 
-/* ---------- buttons ---------- */
 .btn{
   display:inline-block;
   font-family: var(--font-mono);
@@ -140,7 +133,6 @@ h1,h2,h3{
   background: transparent;
 }
 
-/* ---------- status badges ---------- */
 .status-badge{
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -337,10 +329,19 @@ h1,h2,h3{
   border-radius: 50%;
   background: var(--code-bg);
   border: 1px solid var(--border);
-  display:flex; align-items:center; justify-content:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow: hidden;
   font-family: var(--font-display);
   font-size: 3rem;
   color: var(--accent);
+}
+.avatar-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .bio-text{ font-size: 1.05rem; margin-bottom: 1.2rem; }
 .philosophy-quote{
@@ -392,10 +393,7 @@ h1,h2,h3{
 .skill-card li{ margin-bottom: 0.35rem; }
 
 /* ==========================================================================
-   CARD LAYOUT (shared by projects / programs & certs)
-   Title + status badge share a row (space-between). Logo/thumb sits left,
-   description sits right, tags sit along the bottom, per the spec's
-   card wireframe.
+   PROJECTS & VENTURES & EXPERIENCE
    ========================================================================== */
 .projects-grid{
   display:grid;
@@ -438,9 +436,6 @@ h1,h2,h3{
 }
 .card-link-row a:hover{ text-decoration: underline; }
 
-/* ==========================================================================
-   VENTURES
-   ========================================================================== */
 .ventures-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -477,8 +472,6 @@ h1,h2,h3{
   font-size: 0.82rem;
   color: var(--accent);
 }
-
-/* ---------- Venture Role Badge ---------- */
 .role-badge {
   display: inline-block;
   font-family: var(--font-mono);
@@ -491,8 +484,6 @@ h1,h2,h3{
   letter-spacing: 0.02em;
   margin-top: 0.2rem;
 }
-
-/* ---------- Venture Contributions ---------- */
 .venture-contributions {
   list-style: none;
   padding: 0;
@@ -512,9 +503,6 @@ h1,h2,h3{
   color: var(--accent);
 }
 
-/* ==========================================================================
-   WORK EXPERIENCE
-   ========================================================================== */
 .experience-list{ display:flex; flex-direction:column; gap: 1.2rem; }
 .experience-card{
   background: var(--bg-raised);
@@ -578,19 +566,9 @@ h1,h2,h3{
 .program-org{ font-size: 0.82rem; color: var(--text-soft); font-family: var(--font-mono); margin-top: 0.2rem; }
 .program-body-row{
   display:grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
   align-items: start;
-}
-.program-logo{
-  width: 56px; height: 56px;
-  border-radius: 10px;
-  background: var(--code-bg);
-  display:flex; align-items:center; justify-content:center;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--accent);
-  flex-shrink: 0;
 }
 .program-desc{ font-size: 0.9rem; color: var(--text-soft); }
 .program-links{ display:flex; gap: 0.9rem; margin-top: 0.4rem; }
@@ -602,22 +580,23 @@ h1,h2,h3{
 .program-links a:hover{ text-decoration: underline; }
 .program-links .disabled{ color: var(--text-soft); opacity: 0.6; pointer-events:none; }
 
-/* ---------- Certificate Image (with hover zoom) ---------- */
+/* ---------- Certificate Image (300px zoom) ---------- */
 .cert-image-wrap {
   margin-top: 0.5rem;
-  overflow: visible;
+  overflow: visible !important;
   position: relative;
   z-index: 1;
   transition: z-index 0.3s ease;
 }
 
 .cert-image-wrap:hover {
-  z-index: 10;
+  z-index: 1000;
 }
 
 .cert-image-wrap:hover .cert-image {
-  transform: scale(2.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: scale(3.5);            /* 150px * 2 = 300px */
+  transform-origin: top left;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -627,17 +606,15 @@ h1,h2,h3{
   border-radius: 8px;
   border: 1px solid var(--border);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  cursor: zoom-in;
 }
 
-/* ---------- Cert filter buttons ---------- */
 #certFilterRow {
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
   margin-bottom: 1rem;
 }
-
 #certFilterRow .filter-btn {
   font-family: var(--font-mono);
   font-size: 0.82rem;
@@ -648,7 +625,6 @@ h1,h2,h3{
   border-radius: 999px;
   transition: all var(--transition);
 }
-
 #certFilterRow .filter-btn.active,
 #certFilterRow .filter-btn:hover {
   border-color: var(--accent);
@@ -656,7 +632,7 @@ h1,h2,h3{
 }
 
 /* ==========================================================================
-   REVIEWS & TESTIMONIALS
+   REVIEWS & CONTACT
    ========================================================================== */
 .reviews-grid{
   display:grid;
@@ -749,13 +725,17 @@ h1,h2,h3{
   min-height: 1.2em;
 }
 
-/* ==========================================================================
-   CONTACT
-   ========================================================================== */
+/* ---------- Contact (logos normal size) ---------- */
 .contact-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25rem;
+}
+.contact-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
 }
 .contact-card{
   background: var(--bg-raised);
@@ -763,6 +743,10 @@ h1,h2,h3{
   border-radius: var(--radius);
   padding: 1.4rem;
   transition: transform var(--transition), border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .contact-card:hover{ transform: translateY(-3px); border-color: var(--accent); }
 .contact-label{
@@ -832,8 +816,6 @@ h1,h2,h3{
   flex-direction: column;
   overflow: hidden;
 }
-
-/* ---------- CHATBOT COLLAPSE (fix) ---------- */
 #chatWindow[hidden] {
   display: none !important;
 }
@@ -923,7 +905,7 @@ h1,h2,h3{
 }
 
 /* ==========================================================================
-   HOBBIES SECTION (bottom of page)
+   HOBBIES (natural zoom, fits box)
    ========================================================================== */
 .hobbies-section {
   max-width: var(--container);
@@ -943,8 +925,9 @@ h1,h2,h3{
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: visible !important;
   gap: 1.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0.5rem 2rem 0.5rem;
   scrollbar-width: thin;
 }
 
@@ -961,6 +944,21 @@ h1,h2,h3{
   flex: 0 0 auto;
   width: 140px;
   text-align: center;
+  overflow: visible !important;
+  position: relative;
+  z-index: 1;
+  transition: z-index 0.3s ease;
+}
+
+.hobby-item:hover {
+  z-index: 1000;
+}
+
+.hobby-item:hover .hobby-image {
+  transform: scale(1.6);              /* 120px * 1.6 = 192px — readable & fits */
+  transform-origin: center center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hobby-image {
@@ -970,18 +968,9 @@ h1,h2,h3{
   object-fit: cover;
   border: 1px solid var(--border);
   background: var(--code-bg);
-}
-
-/* ---------- Hobbies hover zoom ---------- */
-.hobby-item:hover .hobby-image {
-  transform: scale(2.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hobby-image {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  cursor: zoom-in;
+  display: block;
 }
 
 .hobby-placeholder {
@@ -1006,7 +995,7 @@ h1,h2,h3{
 }
 
 /* ==========================================================================
-   VENTURE ROLE
+   VENTURE ROLE & RESPONSIVE
    ========================================================================== */
 .venture-role {
   font-family: var(--font-mono);
@@ -1015,9 +1004,6 @@ h1,h2,h3{
   margin: 0;
 }
 
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
 @media (max-width: 860px){
   .nav-links{
     position: fixed;
@@ -1042,4 +1028,9 @@ h1,h2,h3{
 @media (max-width: 480px){
   .chat-window{ width: calc(100vw - 2rem); }
   .hero{ padding-top: 8rem; }
+}
+
+.status-badge.status-ongoing {
+  background: var(--status-progress-bg);
+  color: var(--status-progress-text);
 }

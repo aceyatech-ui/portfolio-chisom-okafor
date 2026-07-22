@@ -127,8 +127,21 @@
   function renderAbout(profile) {
     document.getElementById("bioText").textContent = profile.bio;
     document.getElementById("philosophyText").textContent = '"' + profile.philosophy + '"';
-    document.getElementById("avatarPlaceholder").textContent =
-      profile.fullName.split(" ").map(function (n) { return n[0]; }).join("").slice(0, 2).toUpperCase();
+
+    const avatar = document.getElementById("avatarPlaceholder");
+    if (profile.profileImage) {
+      avatar.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = profile.profileImage;
+      img.alt = profile.fullName;
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.borderRadius = '50%';
+      avatar.appendChild(img);
+    } else {
+      avatar.textContent = profile.fullName.split(" ").map(function (n) { return n[0]; }).join("").slice(0, 2).toUpperCase();
+    }
   }
 
   function renderHobbies(hobbies) {
@@ -357,9 +370,8 @@
       card.appendChild(el("p", "timeline", timelineText(c.startDate, c.endDate)));
 
       const bodyRow = el("div", "program-body-row");
-      bodyRow.appendChild(el("div", "program-logo", c.organisation.slice(0, 2).toUpperCase()));
-      bodyRow.appendChild(el("p", "program-desc", c.description));
 
+      // Show certificate image directly (replaces program logo)
       if (c.image) {
         const imgWrap = el("div", "cert-image-wrap");
         const img = el("img", "cert-image");
@@ -369,6 +381,7 @@
         bodyRow.appendChild(imgWrap);
       }
 
+      bodyRow.appendChild(el("p", "program-desc", c.description));
       card.appendChild(bodyRow);
 
       const tagList = el("div", "tag-list");
@@ -590,6 +603,7 @@
 
     function isGreeting(text) {
       const lower = text.toLowerCase().trim();
+      if (lower.length < 2) return false;
       const greetings = [
         "hi", "hello", "hey", "sup", "yo", "howdy",
         "greetings", "hola", "what's up", "good morning",
@@ -640,11 +654,12 @@
       wrap.innerHTML = "";
       wrap.hidden = false;
 
-      const contactOptions = config.contactQuickReplies || [
+      // Updated: No GitHub, added Instagram
+      const contactOptions = [
         { label: "📱 WhatsApp", action: "whatsapp" },
         { label: "📧 Email", action: "email" },
         { label: "🔗 LinkedIn", action: "linkedin" },
-        { label: "💻 GitHub", action: "github" },
+        { label: "📸 Instagram", action: "instagram" },
         { label: "🔄 Start Over", action: "reset" }
       ];
 
@@ -713,9 +728,9 @@
           const li = SITE_DATA.profile.contact.linkedin || "https://linkedin.com/in/chisom-okafor-5859b93a8";
           addMessage("bot", "🔗 Connect on LinkedIn: " + li);
           break;
-        case "github":
-          const gh = SITE_DATA.profile.contact.github || "https://github.com/aceyatech-ui";
-          addMessage("bot", "💻 Check out my work on GitHub: " + gh);
+        case "instagram":
+          const ig = SITE_DATA.profile.contact.instagram || "https://www.instagram.com/aceyathedeveloper/";
+          addMessage("bot", "📸 Follow on Instagram: " + ig);
           break;
         case "reset":
           clearChat();
@@ -772,7 +787,6 @@
         return;
       }
 
-      // ---- GREETING ----
       if (isGreeting(lower)) {
         addMessage("bot", "Hey! 👋 I'm Chisom's assistant. Let me quickly figure out what you need so I can connect you with her directly.");
         setTimeout(function () {
@@ -781,14 +795,12 @@
         return;
       }
 
-      // ---- CHECK FOR "I'M NOT SURE" ----
       if (/not sure|don't know|unsure/.test(lower)) {
         addMessage("bot", "No problem! That's what Chisom is for. Let me connect you with her directly.");
         setTimeout(showContactQuickReplies, 500);
         return;
       }
 
-      // ---- QUESTION FLOW ----
       if (questionIndex < config.questions.length) {
         answers.push(trimmed);
         questionIndex++;
@@ -797,7 +809,6 @@
             addMessage("bot", config.questions[questionIndex]);
           }, 500);
         } else {
-          // All questions answered — show summary and WhatsApp
           const summary = generateSummary();
           setTimeout(function () {
             addMessage("bot", "📋 Here's a summary of what I gathered:\n\n" + summary);
@@ -810,13 +821,11 @@
         return;
       }
 
-      // ---- IF USER ASKS A TECHNICAL QUESTION ----
       if (/how much|price|cost|budget|slm|llm|ai|model|train|explain|what is/.test(lower)) {
         fetchGemini(trimmed);
         return;
       }
 
-      // ---- PIVOT LOGIC ----
       if (!state.pivoted && state.userMessageCount >= config.pivotAfterMessages) {
         state.pivoted = true;
         saveState();
@@ -830,7 +839,6 @@
         return;
       }
 
-      // ---- REDIRECT IF USER KEEPS TALKING ----
       addMessage("bot", config.redirectLine);
       setTimeout(showContactQuickReplies, 500);
     }
@@ -851,12 +859,10 @@
 
     function init(chatbotConfig) {
       config = chatbotConfig;
-      // ---- CLEAR CHAT HISTORY ON EVERY PAGE LOAD ----
       localStorage.removeItem(STORAGE_KEY);
       state = { messages: [], userMessageCount: 0, pivoted: false };
       questionIndex = 0;
       answers = [];
-      // -------------------------------------------------
 
       const toggle = document.getElementById("chatToggle");
       const windowEl = document.getElementById("chatWindow");

@@ -6,18 +6,23 @@
     "tagline": "Be swift, that platform ain't gonna tailor itself.",
     "philosophy": "I build with a security-aware mindset. I know how things break.",
     "bio": "I started tech in January 2026. I'm a builder — I don't just learn, I ship. I build Small Language Models, automate workflows with n8n and Python, and create frontends that people actually use. I'm currently running SynCorrazon (my startup) and Kaizora Academy (where I teach AI Automation). I'm also a participant in TRI AI (Google DeepMind), the FlyRank ML Internship, and the ATF AI Challenge.",
-    "hobbies": ["Getting to legendary", "probably watching a horror movie", "Listening to good music", "Taking a walk"],
-    "profileImage": "assets/images/profile.jpg",
+    "hobbies": [
+      { "name": "Getting to legendary", "image": "assets/images/gaming.webp" },
+      { "name": "Probably watching a horror movie", "image": "assets/images/hobby-horror.png" },
+      { "name": "Listening to good music", "image": "assets/images/hobby-music.png" },
+      { "name": "Taking a walk", "image": "assets/images/hobby-walk.png" }
+    ],
+    "profileImage": "assets/images/profile.jpg.jpeg",
     "contact": {
       "email": "aceyathedev@gmail.com",
       "whatsapp": "https://api.whatsapp.com/message/DLE3UWZO6VBTI1",
       "linkedin": "https://www.linkedin.com/in/chisom-okafor-5859b93a8",
       "github": "https://github.com/aceyatech-ui",
       "logos": {
-        "email": "assets/logos/email.svg",
-        "whatsapp": "assets/logos/whatsapp.svg",
-        "linkedin": "assets/logos/linkedin.svg",
-        "github": "assets/logos/github.svg"
+        "email": "assets/logos/gmail-svgrepo-com.svg",
+        "whatsapp": "assets/logos/whatsapp-color-svgrepo-com.svg",
+        "linkedin": "assets/logos/linkedin-svgrepo-com.svg",
+        "github": "assets/logos/github-142-svgrepo-com.svg"
       }
     }
   },
@@ -119,7 +124,7 @@
   "ventures": [
     {
       "name": "SynCorrazon",
-      "logo": "assets/logos/syncorrazon.svg",
+      "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
       "description": "My startup, building automation-first products for people who are tired of doing things by hand.",
       "status": "in-progress",
       "statusLabel": "In Progress",
@@ -127,22 +132,22 @@
       "endDate": "Ongoing",
       "socials": {
         "instagram": "https://instagram.com/placeholder",
-        "linkedin": " ",
+        "linkedin": "https://linkedin.com/company/placeholder"
       },
       "website": "https://syncorrazon-frontend.vercel.app/"
     },
     {
       "name": "Kaizora Academy",
-      "logo": "assets/logos/kaizora.svg",
+      "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
       "description": "Where I teach AI Automation — practical, project-based, built for people who want to ship, not just learn theory.",
       "status": "completed",
       "statusLabel": "Active",
       "startDate": "Jun 2026",
       "endDate": "Ongoing",
       "socials": {
-        "facebook": "https://web.facebook.com/profile.php?id=100064973045551"
+        "facebook": "https://web.facebook.com/profile.php?id=100064973045551",
         "instagram": "https://www.instagram.com/kaizoraacademy?igsh=bjFjcjJ4cGdvdzQ4",
-        "linkedin": "https://www.linkedin.com/company/kaizora-academy/",
+        "linkedin": "https://www.linkedin.com/company/kaizora-academy/"
       }
     }
   ],
@@ -164,8 +169,8 @@
       "id": "python-automation",
       "name": "Google IT Automation with Python Professional Certificate",
       "organisation": "Coursera: John Hopkins University",
-      "image": "assets/images/cert-google-automation.jpg",
-      "logo": "assets/logos/it-automation.svg",
+      "image": "assets/images/cert-google-automation.png",
+      "logo": "assets/logos/google-color-svgrepo-com.svg",
       "description": "Letting python do the repetitive work.",
       "category": "certificate",
       "type": "certificate",
@@ -181,8 +186,8 @@
       "id": "google-cybersecurity",
       "name": "Google Cybersecurity Professional Certificate (v.2)",
       "organisation": "Coursera: Google",
-      "image": "assets/images/cert-google-cybersecurity.jpg",
-      "logo": "assets/logos/flyrank.svg",
+      "image": "assets/images/cert-google-cybersecurity.png",
+      "logo": "assets/logos/google-color-svgrepo-com.svg",
       "description": "Hands-on cybersecurity training focused on defence and analysis.",
       "category": "certificate",
       "type": "certificate",
@@ -198,8 +203,8 @@
       "id": "devsecops-boardinfinity",
       "name": "Introduction To DevSecOps",
       "organisation": "Coursera: Board Infinity",
-      "image": "assets/images/cert-devsecops-boardinfinity.jpg",
-      "logo": "assets/logos/boardinfinity.svg",
+      "image": "assets/images/cert-devsecops-boardinfinity.jpeg",
+      "logo": "assets/logos/coursera-svgrepo-com.svg",
       "description": "CI/CD Integration.",
       "category": "program",
       "type": "program",
@@ -215,8 +220,8 @@
       "id": "devsecops-johnhopkins",
       "name": "Introduction To DevSecOps",
       "organisation": "Coursera: John Hopkins University",
-      "image": "assets/images/cert-devsecops-johnhopkins.jpg",
-      "logo": "assets/logos/johnhopkins.svg",
+      "image": "assets/images/cert-devsecops-johnhopkins.jpeg",
+      "logo": "assets/logos/coursera-svgrepo-com.svg",
       "description": "Secure coding practices and threat-aware system design.",
       "category": "certificate",
       "type": "certificate",
@@ -232,8 +237,8 @@
       "id": "slm-build",
       "name": "Build Your Own Small Language Model",
       "organisation": "TRI AI; Google DeepMind",
-      "image": "assets/images/cert-slm-build.jpg",
-      "logo": "assets/logos/kaizora.svg",
+      "image": "assets/images/cert-slm-build.png",
+      "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
       "description": "Self-directed certification on building and training SLMs.",
       "category": "badge",
       "type": "badge",

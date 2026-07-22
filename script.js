@@ -851,7 +851,12 @@
 
     function init(chatbotConfig) {
       config = chatbotConfig;
-      loadState();
+      // ---- CLEAR CHAT HISTORY ON EVERY PAGE LOAD ----
+      localStorage.removeItem(STORAGE_KEY);
+      state = { messages: [], userMessageCount: 0, pivoted: false };
+      questionIndex = 0;
+      answers = [];
+      // -------------------------------------------------
 
       const toggle = document.getElementById("chatToggle");
       const windowEl = document.getElementById("chatWindow");

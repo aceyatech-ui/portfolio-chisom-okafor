@@ -2,10 +2,10 @@
   "profile": {
     "fullName": "Chisom Okafor",
     "nicknames": ["Aceya", "Slime"],
-    "title": "AI/ML, Automation, Developer, Engineer",
-    "tagline": "Be swift, that platform ain't gonna tailor itself.",
-    "philosophy": "I build with a security-aware mindset. I know how things break.",
-    "bio": "I started tech in January 2026. I'm a builder — I don't just learn, I ship. I build Small Language Models, automate workflows with n8n and Python, and create frontends that people actually use. I'm currently running SynCorrazon (my startup) and Kaizora Academy (where I teach AI Automation). I'm also a participant in TRI AI (Google DeepMind), the FlyRank ML Internship, and the ATF AI Challenge.",
+    "title": "AI/ML | Automation | FullStack Developer | Security Analyst | Engineer",
+    "tagline": "Be swift to text me, that platform ain't gonna tailor itself.",
+    "philosophy": "I am an important part of the universe, until I stop existing.",
+    "bio": "I build security aware AI, automation, and full-stack products.\n I started learning to code in January 2026. Since then, I've built and trained Small Language Models, deployed live web apps, co-founded two startups, and become a Machine Learning Intern at FlyRank.\n I lead a team in TRI AI (Google DeepMind) where we're building an SLM trained on African folktales.\nI'm also a Team Lead in the TechCrush Cybersecurity Bootcamp capstone. And I run Kaizora Academy, where I teach AI Automation to others.\n I'm a builder. I ship what I start.",
     "hobbies": [
       { "name": "Getting to legendary", "image": "assets/images/gaming.webp" },
       { "name": "Probably watching a horror movie", "image": "assets/images/hobby-horror.png" },
@@ -32,7 +32,7 @@
     { "category": "Python Automation", "items": ["Python Scripting", "Task Automation", "API Integrations", "Data Pipelines"] },
     { "category": "AI Automation", "items": ["n8n Workflows", "Zapier / Make", "Chatbot Logic", "Process Orchestration", "Prompt Engineering"] },
     { "category": "Development", "items": ["HTML / CSS / JavaScript", "Python", "Frontend Builds", "REST APIs", "Git & GitHub"] },
-    { "category": "Security", "items": ["Security-aware Design", "Threat Modeling Basics", "Safe Data Handling", "Access Control Thinking", "splunk"] },
+    { "category": "Security", "items": ["Security-aware Design", "Threat Modeling Basics", "Safe Data Handling", "Access Control Thinking", "splunk","Packet Tracer", "WireShark"] },
     { "category": "Business", "items": ["Startup Ops (SynCorrazon)", "Teaching & Curriculum Building (Kaizora)", "Client Communication", "Product Thinking"] }
   ],
 
@@ -73,7 +73,7 @@
       "status": "completed",
       "statusLabel": "Completed",
       "startDate": "May 2026",
-      "endDate": "Ongoing",
+      "endDate": "June 2026",
       "links": {
         "github": "https://github.com/aceyatech-ui/Building-a-small-language-model"
       }
@@ -95,7 +95,7 @@
     {
       "id": "scholar-bridge",
       "name": "Scholar Bridge",
-      "description": "A responsive React front-end for ScholarBridge, a scholarship-matching platform, rebuilt to match the Figma design with the real image components (university crests, student photos, onboarding illustrations) wired into place. Built with Vite + React + React Router. Client-side routing keeps navigation instant and smooth, with no full-page reloads. Done as a capstone project for Tech4Dev, Women Techsters.",
+      "description": "A responsive React Demo front-end for ScholarBridge, a scholarship-matching platform, rebuilt to match the Figma design with the real image components (university crests, student photos, onboarding illustrations) wired into place. Built with Vite + React + React Router. Client-side routing keeps navigation instant and smooth, with no full-page reloads. Done as a capstone project for Tech4Dev, Women Techsters.",
       "techStack": ["HTML", "CSS", "JavaScript"],
       "status": "completed",
       "statusLabel": "Completed",
@@ -191,7 +191,7 @@
       "description": "Hands-on cybersecurity training focused on defence and analysis.",
       "category": "certificate",
       "type": "certificate",
-      "tags": ["security", "python", "automation"],
+      "tags": ["security", "python", "automation", "linux", "networking", "threat modeling", "log analysis", "SIEM"],
       "startDate": "Apr 2026",
       "endDate": "May 2026",
       "status": "completed",
@@ -206,9 +206,9 @@
       "image": "assets/images/cert-devsecops-boardinfinity.jpeg",
       "logo": "assets/logos/coursera-svgrepo-com.svg",
       "description": "CI/CD Integration.",
-      "category": "program",
-      "type": "program",
-      "tags": ["dev"],
+      "category": "certificate",
+      "type": "certificate",
+      "tags": ["dev", "CI/CD"],
       "startDate": "May 2026",
       "endDate": "May 2026",
       "status": "completed",
@@ -225,7 +225,7 @@
       "description": "Secure coding practices and threat-aware system design.",
       "category": "certificate",
       "type": "certificate",
-      "tags": ["python", "CI/CD", "dev"],
+      "tags": ["python", "CI/CD", "dev", "Github Actions", "GitHub", "DevSecOps"],
       "startDate": "Apr 2026",
       "endDate": "May 2026",
       "status": "completed",
@@ -240,8 +240,8 @@
       "image": "assets/images/cert-slm-build.png",
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
       "description": "Self-directed certification on building and training SLMs.",
-      "category": "badge",
-      "type": "badge",
+      "category": ["badges", "program"],
+      "type": "badges",
       "tags": ["security", "dev"],
       "startDate": "May 2026",
       "endDate": "Jun 2026",
@@ -249,6 +249,23 @@
       "statusLabel": "Completed",
       "programUrl": "https://www.skills.google/paths/3135/course_templates/1341",
       "certificateUrl": "https://www.skills.google/public_profiles/0cd9b44c-7f3d-477b-b3ef-28362099795f/badges/25109300"
+    },
+    {
+      "id": "cybersecurity",
+      "name": "Cybersecurity Bootcamp",
+      "organisation": "Tech4Africans; TechCrush (Scholarship)",
+      "image": "assets/images/cert-cybersecurity.png",
+      "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
+      "description": "Self-directed certification on building and training SLMs.",
+      "category": ["certificate", "program"],
+      "type": ["Program", "Certificate"],
+      "tags": ["security", "log analysis", "threat modeling", "linux", "networking", "python", "bash"],
+      "startDate": "May 2026",
+      "endDate": "July 2026",
+      "status": "ongoing",
+      "statusLabel": "In View",
+      "programUrl": "https://techcrush.pro/scholarship/",
+      "certificateUrl": " "
     }
   ],
 

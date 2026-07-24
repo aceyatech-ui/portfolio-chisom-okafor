@@ -4,7 +4,7 @@ Aceya Portfolio — Backend
 Handles review submissions and a hidden, password-protected admin panel
 for approving/rejecting them.
 
-Also includes Gemini AI chat endpoint for the portfolio chatbot.
+Also includes Hugging Face AI chat endpoint for the portfolio chatbot.
 
 Endpoints
 ---------
@@ -17,13 +17,13 @@ POST /reject-review/<id>     -> deletes a review from pending
 POST /delete-review/<id>     -> deletes a review from both pending and approved
 GET  /api/reviews             -> public: returns all approved reviews (JSON)
 POST /admin-logout            -> clears the admin session
-POST /chat                    -> Gemini AI chat endpoint (for the chatbot)
+POST /chat                    -> Hugging Face AI chat endpoint (for the chatbot)
 GET  /ping                    -> tiny response for cron-job.org
 
 Run locally
 -----------
   cd backend
-  python -m venv venv && source venv/bin/activate   (Windows: venv\\Scripts\\activate)
+  python -m venv venv && source venv/bin/activate   (Windows: venv\Scripts\activate)
   pip install -r requirements.txt
   cp .env.example .env      # then edit .env with your own values
   python app.py
@@ -35,15 +35,13 @@ See README.md for deploying this to Render.
 import json
 import os
 import uuid
+import requests
 from datetime import date
 from functools import wraps
 
 from dotenv import load_dotenv
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
 from flask_cors import CORS
-
-# ---- Gemini AI ----
-import google.generativeai as genai
 
 load_dotenv()
 
@@ -53,18 +51,12 @@ PENDING_FILE = os.path.join(BASE_DIR, "pending_reviews.json")
 
 ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "admin")
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "change-me")
-# Custom, unguessable admin path. Never link this anywhere on the public site.
 ADMIN_URL = os.environ.get("ADMIN_URL", "/aceya-admin-2026").rstrip("/")
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-change-me")
-
-# Comma-separated list of allowed frontend origins (your GitHub Pages URL, etc.)
 ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "*")
 
-# ---- Gemini API ----
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
-if GEMINI_API_KEY:
-    genai.configure(api_key=GEMINI_API_KEY)
-    gemini_model = genai.GenerativeModel("gemini-2.0-flash-lite")
+# ---- Hugging Face API ----
+HUGGINGFACE_API_KEY = os.environ.get("HUGGINGFACE_API_KEY")
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
@@ -118,8 +110,6 @@ def admin_required(view):
 # --------------------------------------------------------------------------
 @app.route("/api/reviews", methods=["GET"])
 def api_reviews():
-    """Returns all approved reviews. The frontend falls back to the reviews
-    baked into data.json if this endpoint is unreachable."""
     return jsonify(get_approved())
 
 
@@ -224,7 +214,7 @@ def admin_logout():
 
 
 # --------------------------------------------------------------------------
-# Gemini AI Chat Endpoint (for the portfolio chatbot)
+# Hugging Face AI Chat Endpoint (for the portfolio chatbot)
 # --------------------------------------------------------------------------
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -234,42 +224,37 @@ def chat():
     if not user_message:
         return jsonify({"reply": "Say something, I'm listening! 😄"}), 400
 
-    # ---- SYSTEM PROMPT WITH XML TAGS ----
     system_prompt = """
-<system_prompt>
-    <role>
-        You are Chisom's assistant, a lead qualification bot for her portfolio.
-    </role>
-    <instructions>
-        1. Ask 2-3 quick questions to figure out what the user needs.
-        2. Give very short answers (1 sentence max) if asked technical questions.
-        3. Immediately redirect to Chisom after giving a short answer.
-        4. If the user says "I'm not sure" or "I don't know", redirect to Chisom.
-    </instructions>
-    <constraints>
-        You are NOT here to give detailed answers. You are here to connect people with Chisom.
-    </constraints>
-    <redirect_phrases>
-        - "Good question! Chisom specializes in that, you know?"
-        - "I really shouldn't be talking to you this long. Let me connect you with her!"
-        - "I could explain, but Chisom would do a much better job. Click below to message her!"
-        - "That's exactly what Chisom is for. Let me get you connected!"
-    </redirect_phrases>
-    <final_action>
-        Always end with an invitation to message Chisom on WhatsApp.
-    </final_action>
-</system_prompt>
+You are Chisom's assistant. You are helpful and smart.
+
+Keep answers short (1-2 sentences). If asked about Chisom, say she builds AI systems, automates workflows with n8n, builds SLMs, and ships full-stack apps. If the user says "I don't know" or "not sure", redirect them to Chisom. Always end with an invitation to message Chisom on WhatsApp.
 """
 
     try:
-        if not GEMINI_API_KEY:
+        if not HUGGINGFACE_API_KEY:
             return jsonify({"reply": "Good question! Chisom would love to help. Let me connect you with her directly."}), 200
 
-        response = gemini_model.generate_content(system_prompt + "\nUser: " + user_message)
-        reply = response.text.strip()
-        if not reply:
+        url = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
+        headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
+        payload = {"inputs": system_prompt + "\n\nUser: " + user_message}
+
+        response = requests.post(url, headers=headers, json=payload, timeout=30)
+        result = response.json()
+
+        if isinstance(result, list) and len(result) > 0 and "generated_text" in result[0]:
+            reply = result[0]["generated_text"].strip()
+        elif isinstance(result, dict) and "generated_text" in result:
+            reply = result["generated_text"].strip()
+        else:
             reply = "Good question! Chisom would love to help. Let me connect you with her directly."
+
+        if len(reply) > 200:
+            reply = reply[:200] + "..."
+
         return jsonify({"reply": reply})
+
+    except requests.exceptions.Timeout:
+        return jsonify({"reply": "Good question! Chisom would love to help. Let me connect you with her directly."}), 200
     except Exception as e:
         return jsonify({"reply": "Good question! Chisom would love to help. Let me connect you with her directly."}), 200
 

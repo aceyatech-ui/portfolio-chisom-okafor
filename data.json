@@ -9,9 +9,9 @@
     "metaDescription": "Chisom Okafor – AI/ML Engineer, Full‑Stack Developer, and Automation Specialist. Building secure, production‑ready systems with SLMs, Python, and security-first design.",
     "hobbies": [
       { "name": "Getting to legendary in CODM", "image": "assets/images/gaming.webp" },
-      { "name": "Probably watching a horror movie", "image": "assets/images/hobby-horror.png" },
-      { "name": "Listening to good music", "image": "assets/images/hobby-music.png" },
-      { "name": "Taking a walk", "image": "assets/images/hobby-walk.png" }
+      { "name": "Probably watching a horror movie", "image": "assets/images/horror.jpg" },
+      { "name": "Listening to good music", "image": "assets/images/music.png" },
+      { "name": "Making music", "image": "assets/images/bandlab.png" }
     ],
     "profileImage": "assets/images/profile.jpg.jpeg",
     "contact": {
@@ -49,18 +49,22 @@
       "statusLabel": "In Progress",
       "startDate": "Jul 2026",
       "endDate": "Ongoing",
-      "live": "https://syncorrazon-frontend.vercel.app/"
+      "links": {
+        "live": "https://syncorrazon-frontend.vercel.app/"
+      }
     },
     {
       "id": "portfolio-backend",
       "name": "Portfolio Backend – Flask API & AI Chatbot",
       "description": "Flask API that powers review submissions, admin approval, and an AI chatbot for my portfolio. Deployed on Render with cron keep‑alive.",
       "techStack": ["Flask", "Python", "json"],
-      "status": "in-progress",
-      "statusLabel": "In Progress",
+      "status": "completed",
+      "statusLabel": "Completed",
       "startDate": "Jul 2026",
       "endDate": "Ongoing",
-      "live": "https://portfolio-chisom-okafor.onrender.com/"
+      "links": {
+        "live": "https://portfolio-chisom-okafor.onrender.com"
+      }
     },
     {
       "id": "quiz-app",
@@ -92,8 +96,8 @@
     },
     {
       "id": "tri-ai-slm",
-      "name": "Small Language Model (SLM) from Scratch",
-      "description": "Built a small language model from scratch as part of TRI AI (Google DeepMind). Trained and evaluated an SLM end‑to‑end using PyTorch, with a focus on African folktales.",
+      "name": "Small Language Model (SLM) from Scratch (TRI AI / Google DeepMind lab)",
+      "description": "Built as part of the TRI AI program (Google DeepMind) — a small language model trained on African galore data and evaluated end-to-end using PyTorch.",
       "techStack": ["Python", "PyTorch", "SLM"],
       "status": "completed",
       "statusLabel": "Completed",
@@ -106,7 +110,7 @@
     {
       "id": "scholar-bridge",
       "name": "Scholar Bridge – Scholarship Matching Platform",
-      "description": "Rebuilt a scholarship‑matching platform frontend from Figma to production using React, Vite, and React Router. Wired in real university crests and student photos for a seamless, production‑ready UX.",
+      "description": "A responsive demo front-end for ScholarBridge, a scholarship-matching platform, rebuilt from Figma to match the design. Some buttons are static and features are limited — it's a demo showcase.",      
       "techStack": ["React", "Vite", "CSS", "JavaScript"],
       "status": "completed",
       "statusLabel": "Completed",
@@ -279,7 +283,7 @@
       "endDate": "Jul 2026",
       "status": "in-view",
       "statusLabel": "In View",
-      "programUrl": null,
+      "programUrl": "https://womentechsters.org/programs/bootcamp/",
       "certificateUrl": null
     }
   ],

@@ -155,7 +155,7 @@
     }
 
     const wrapper = el("div", "hobbies-wrapper");
-    const label = el("p", "hobbies-label", "When I'm not building, I'm…");
+    const label = el("p", "hobbies-label", "When I'm not building, I'm usually…");
     wrapper.appendChild(label);
 
     const row = el("div", "hobbies-row");
@@ -301,43 +301,15 @@
   }
 
   let ALL_CERTS = [];
-  let activeTypeFilter = "all";
-  let activeTagFilter = null;
   let activeCertCategoryFilter = "all";
 
   function renderPrograms(certifications) {
     ALL_CERTS = certifications;
-    const tagSet = new Set();
-    certifications.forEach(function (c) { c.tags.forEach(function (t) { tagSet.add(t); }); });
-
-    const tagRow = document.getElementById("tagRow");
-    tagRow.innerHTML = "";
-    tagSet.forEach(function (tag) {
-      const btn = el("button", "tag-btn", "#" + tag);
-      btn.dataset.tag = tag;
-      btn.addEventListener("click", function () {
-        activeTagFilter = activeTagFilter === tag ? null : tag;
-        tagRow.querySelectorAll(".tag-btn").forEach(function (b) {
-          b.classList.toggle("active", b.dataset.tag === activeTagFilter);
-        });
-        drawPrograms();
-      });
-      tagRow.appendChild(btn);
-    });
 
     document.querySelectorAll("#certFilterRow .filter-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         activeCertCategoryFilter = btn.dataset.certFilter;
         document.querySelectorAll("#certFilterRow .filter-btn").forEach(function (b) { b.classList.remove("active"); });
-        btn.classList.add("active");
-        drawPrograms();
-      });
-    });
-
-    document.querySelectorAll("#filterRow .filter-btn").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        activeTypeFilter = btn.dataset.filter;
-        document.querySelectorAll("#filterRow .filter-btn").forEach(function (b) { b.classList.remove("active"); });
         btn.classList.add("active");
         drawPrograms();
       });
@@ -349,11 +321,10 @@
   function drawPrograms() {
     const grid = document.getElementById("programsGrid");
     grid.innerHTML = "";
+
     const filtered = ALL_CERTS.filter(function (c) {
-      const typeMatch = activeTypeFilter === "all" || c.type === activeTypeFilter;
-      const tagMatch = !activeTagFilter || c.tags.indexOf(activeTagFilter) !== -1;
-      const categoryMatch = activeCertCategoryFilter === "all" || c.category === activeCertCategoryFilter;
-      return typeMatch && tagMatch && categoryMatch;
+      if (activeCertCategoryFilter === "all") return true;
+      return c.tags && c.tags.indexOf(activeCertCategoryFilter) !== -1;
     });
 
     filtered.forEach(function (c) {
@@ -371,7 +342,6 @@
 
       const bodyRow = el("div", "program-body-row");
 
-      // Show certificate image directly (replaces program logo)
       if (c.image) {
         const imgWrap = el("div", "cert-image-wrap");
         const img = el("img", "cert-image");
@@ -526,7 +496,8 @@
       { label: "Email", value: contact.email, href: "mailto:" + contact.email, logo: contact.logos.email },
       { label: "WhatsApp Business", value: "Message me", href: contact.whatsapp, logo: contact.logos.whatsapp },
       { label: "LinkedIn", value: "View profile", href: contact.linkedin, logo: contact.logos.linkedin },
-      { label: "GitHub", value: "View profile", href: contact.github, logo: contact.logos.github }
+      { label: "GitHub", value: "View profile", href: contact.github, logo: contact.logos.github },
+      { label: "Instagram", value: "Follow me", href: contact.instagram, logo: contact.logos.instagram }
     ];
     entries.forEach(function (entry) {
       const a = el("a", "contact-card");
@@ -654,7 +625,6 @@
       wrap.innerHTML = "";
       wrap.hidden = false;
 
-      // Updated: No GitHub, added Instagram
       const contactOptions = [
         { label: "📱 WhatsApp", action: "whatsapp" },
         { label: "📧 Email", action: "email" },
@@ -712,25 +682,16 @@
     function handleAction(action) {
       switch (action) {
         case "whatsapp":
-          const waLink = SITE_DATA.profile.contact.whatsapp || "https://wa.me/234XXXXXXXXX";
-          addMessage("bot", "📱 Click below to message Chisom on WhatsApp:");
-          const waBtn = el("a", "whatsapp-link", "Open WhatsApp →");
-          waBtn.href = waLink;
-          waBtn.target = "_blank";
-          waBtn.rel = "noopener";
-          document.getElementById("chatMessages").appendChild(waBtn);
+          window.open(SITE_DATA.profile.contact.whatsapp || "https://wa.me/234XXXXXXXXX", "_blank");
           break;
         case "email":
-          const email = SITE_DATA.profile.contact.email || "aceyathedev@gmail.com";
-          addMessage("bot", "📧 Email Chisom directly: " + email);
+          window.location.href = "mailto:" + (SITE_DATA.profile.contact.email || "aceyathedev@gmail.com");
           break;
         case "linkedin":
-          const li = SITE_DATA.profile.contact.linkedin || "https://linkedin.com/in/chisom-okafor-5859b93a8";
-          addMessage("bot", "🔗 Connect on LinkedIn: " + li);
+          window.open(SITE_DATA.profile.contact.linkedin || "https://linkedin.com/in/chisom-okafor-5859b93a8", "_blank");
           break;
         case "instagram":
-          const ig = SITE_DATA.profile.contact.instagram || "https://www.instagram.com/aceyathedeveloper/";
-          addMessage("bot", "📸 Follow on Instagram: " + ig);
+          window.open(SITE_DATA.profile.contact.instagram || "https://www.instagram.com/aceyathedeveloper/", "_blank");
           break;
         case "reset":
           clearChat();

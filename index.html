@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aceya — Chisom Okafor | AI/ML, Automation &amp; Dev Engineer</title>
-<meta name="description" content="Portfolio of Chisom Okafor (Aceya / Slime) — AI/ML, Automation & Dev Engineer.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aceya — Chisom Okafor | AI/ML, Automation &amp; Dev Engineer</title>
+  <meta name="description" content="Portfolio of Chisom Okafor (Aceya / Slime) — AI/ML, Automation &amp; Dev Engineer." />
 
-<!-- Favicon (emoji fallback) -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
-<link rel="apple-touch-icon" href="assets/images/favicon.png" />
+  <!-- Favicon (emoji fallback) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.png" />
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="google14a09b31a28ec9c9" />
+
+  <!-- Canonical URL for SEO -->
+  <link rel="canonical" href="https://aceyatech-ui.github.io/portfolio-chisom-okafor/" />
 </head>
 <body>
 
@@ -59,7 +65,13 @@
         <h1 class="hero-name">Chisom Okafor</h1>
         <p class="hero-alias">aka <span class="alias-chip">Aceya</span> <span class="alias-chip">Slime</span></p>
         <p class="hero-title" id="heroTitle"></p>
-        <p class="hero-tagline">"Be swift, that platform ain't gonna tailor itself."</p>
+        <p class="hero-tagline" id="heroTagline"></p>
+
+        <!-- CTA above the fold -->
+        <p style="font-weight: 600; margin-top: 0.5rem; color: var(--accent);">
+          🚀 Open to AI Automation / Dev roles — let's talk
+        </p>
+
         <div class="hero-cta-row">
           <a href="#projects" class="btn btn-primary">See My Work</a>
           <a href="#contact" class="btn btn-ghost">Get In Touch</a>
@@ -128,15 +140,14 @@
     <p class="section-label reveal">Programs &amp; Certifications</p>
     <h2 class="section-title reveal">Programs &amp; Certifications</h2>
 
-    <!-- Filter buttons: All / Certificates / Badges / Programs -->
+    <!-- Filter buttons: All / AI / Security / Dev -->
     <div class="filter-row reveal" id="certFilterRow">
       <button class="filter-btn active" data-cert-filter="all">All</button>
-      <button class="filter-btn" data-cert-filter="certificate">Certificates</button>
-      <button class="filter-btn" data-cert-filter="badge">Badges</button>
-      <button class="filter-btn" data-cert-filter="program">Programs</button>
+      <button class="filter-btn" data-cert-filter="ai">AI / ML</button>
+      <button class="filter-btn" data-cert-filter="security">Security</button>
+      <button class="filter-btn" data-cert-filter="dev">Dev / Automation</button>
     </div>
 
-    <div class="tag-row reveal" id="tagRow"></div>
     <div class="programs-grid" id="programsGrid"></div>
   </section>
 
@@ -158,8 +169,8 @@
       <h3>Leave a Review</h3>
       <p class="review-form-note">Submitted reviews go to Aceya for approval before they appear here.</p>
       <form id="reviewForm" class="review-form">
-        <input type="text" id="reviewName" placeholder="Your name" required>
-        <input type="url" id="reviewLinkedin" placeholder="Your LinkedIn URL (optional)">
+        <input type="text" id="reviewName" placeholder="Your name" required />
+        <input type="url" id="reviewLinkedin" placeholder="Your LinkedIn URL (optional)" />
         <textarea id="reviewText" placeholder="Your review" required rows="3"></textarea>
         <button type="submit" class="btn btn-primary">Submit Review</button>
       </form>
@@ -176,7 +187,7 @@
 
   <!-- ============ HOBBIES (Bottom) ============ -->
   <section class="section hobbies-section" id="hobbiesSection">
-    <p class="section-label reveal">When I'm not building</p>
+    <p class="section-label reveal">When I'm not building, I'm usually…</p>
     <div id="hobbiesContainer"></div>
   </section>
 
@@ -198,7 +209,7 @@
     <div class="chat-header">
       <div>
         <p class="chat-title">Aceya's Assistant</p>
-        <p class="chat-subtitle">usually replies within a day</p>
+        <p class="chat-subtitle">usually replies within a sec ⚡</p>
       </div>
       <button id="chatClose" class="chat-close" aria-label="Close chat">✕</button>
     </div>

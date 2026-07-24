@@ -2,10 +2,11 @@
   "profile": {
     "fullName": "Chisom Okafor",
     "nicknames": ["Aceya", "Slime"],
-    "title": "AI/ML | Automation | FullStack Developer | Security Analyst | Engineer",
-    "tagline": "Be swift to text me, that platform ain't gonna tailor itself.",
-    "philosophy": "I am an important part of the universe, until I stop existing.",
-    "bio": "I build security aware AI, automation, and full-stack products.\n I started learning to code in January 2026. Since then, I've built and trained Small Language Models, deployed live web apps, co-founded two startups, and become a Machine Learning Intern at FlyRank.\n I lead a team in TRI AI (Google DeepMind) where we're building an SLM trained on African folktales.\nI'm also a Team Lead in the TechCrush Cybersecurity Bootcamp capstone. And I run Kaizora Academy, where I teach AI Automation.\n I'm a builder. I ship what I start.",
+    "title": "AI/ML Engineer & Full‑Stack Developer | Automation & Security Specialist",
+    "tagline": "Building intelligent systems that automate, connect, and ship – with security at the core.",
+    "philosophy": "I build systems that think, connect, and ship. With a security aware mindset.",
+    "bio": "I design and build security‑aware AI systems, automation workflows, and full‑stack applications. Since January 2026, I’ve trained Small Language Models (SLMs), deployed production web apps, and co‑founded two startups. Currently, I’m a Machine Learning Intern at FlyRank, working on AI agents and production ML. I also lead the TRI AI team (Google DeepMind) building an SLM on African folktales, and I’m a Team Lead for the TechCrush Cybersecurity Bootcamp capstone. Through Kaizora Academy, I teach practical AI automation to aspiring builders. I ship what I start — and I make sure it’s secure.",
+    "metaDescription": "Chisom Okafor – AI/ML Engineer, Full‑Stack Developer, and Automation Specialist. Building secure, production‑ready systems with SLMs, Python, and security-first design.",
     "hobbies": [
       { "name": "Getting to legendary", "image": "assets/images/gaming.webp" },
       { "name": "Probably watching a horror movie", "image": "assets/images/hobby-horror.png" },
@@ -18,29 +19,53 @@
       "whatsapp": "https://api.whatsapp.com/message/DLE3UWZO6VBTI1",
       "linkedin": "https://www.linkedin.com/in/chisom-okafor-5859b93a8",
       "github": "https://github.com/aceyatech-ui",
+      "instagram": "https://www.instagram.com/aceyathedeveloper/",
       "logos": {
         "email": "assets/logos/gmail-svgrepo-com.svg",
         "whatsapp": "assets/logos/whatsapp-color-svgrepo-com.svg",
         "linkedin": "assets/logos/linkedin-svgrepo-com.svg",
-        "github": "assets/logos/github-142-svgrepo-com.svg"
+        "github": "assets/logos/github-142-svgrepo-com.svg",
+        "instagram": "assets/logos/instagram-1-svgrepo-com.svg"
       }
     }
   },
 
   "skills": [
     { "category": "AI / ML", "items": ["Small Language Models (SLMs)", "Prompt Engineering", "Model Fine-tuning", "AI Agents"] },
-    { "category": "Python Automation", "items": ["Python Scripting", "Task Automation", "API Integrations", "Data Pipelines"] },
+    { "category": "Python Automation", "items": ["Python Scripting", "Task Automation", "API Integrations", "Data Pipelines", "Live Backend: portfolio-chisom-okafor.onrender.com"] },
     { "category": "AI Automation", "items": ["n8n Workflows", "Zapier / Make", "Chatbot Logic", "Process Orchestration", "Prompt Engineering"] },
     { "category": "Development", "items": ["HTML / CSS / JavaScript", "Python", "Frontend Builds", "REST APIs", "Git & GitHub"] },
-    { "category": "Security", "items": ["Security-aware Design", "Threat Modeling Basics", "Safe Data Handling", "Access Control Thinking", "splunk","Packet Tracer", "WireShark"] },
+    { "category": "Security", "items": ["Security-aware Design", "Threat Modeling Basics", "Safe Data Handling", "Access Control Thinking", "Splunk", "Packet Tracer", "WireShark"] },
     { "category": "Business", "items": ["Startup Ops (SynCorrazon)", "Teaching & Curriculum Building (Kaizora)", "Client Communication", "Product Thinking"] }
   ],
 
   "projects": [
     {
+      "id": "syncorrazon-frontend",
+      "name": "SynCorrazon Frontend – Real‑Time Movie Watching",
+      "description": "Built and debugged a frontend for real‑time movie watching with friends. Still a work in progress – ironing out the kinks and making the experience seamless.",
+      "techStack": ["React", "Vite", "CSS", "JavaScript"],
+      "status": "in-progress",
+      "statusLabel": "In Progress",
+      "startDate": "Jul 2026",
+      "endDate": "Ongoing",
+      "live": "https://syncorrazon-frontend.vercel.app/"
+    },
+    {
+      "id": "portfolio-backend",
+      "name": "Portfolio Backend – Flask API & AI Chatbot",
+      "description": "Flask API that powers review submissions, admin approval, and an AI chatbot for my portfolio. Deployed on Render with cron keep‑alive.",
+      "techStack": ["Flask", "Python", "json"],
+      "status": "in-progress",
+      "statusLabel": "In Progress",
+      "startDate": "Jul 2026",
+      "endDate": "Ongoing",
+      "live": "https://portfolio-chisom-okafor.onrender.com/"
+    },
+    {
       "id": "quiz-app",
-      "name": "Personality Quiz App",
-      "description": "An interactive quiz application with score tracking, timed questions, and a clean, distraction-free interface.",
+      "name": "Personality Quiz – What Kind of Animal Are You?",
+      "description": "Built a full interactive personality quiz with 10 timed questions, score tracking, and personality type results. Designed a clean, distraction‑free UI that works on all devices.",
       "techStack": ["JavaScript", "HTML/CSS"],
       "status": "completed",
       "statusLabel": "Completed",
@@ -53,12 +78,12 @@
     },
     {
       "id": "Rock-paper-scissors",
-      "name": "Rock, Paper, Scissors App",
-      "description": "A fun game I play every now and then because all work and no play sucks.",
-      "techStack": ["Python", "html", "css"],
+      "name": "Rock‑Paper‑Scissors Game – Interactive Python & JS",
+      "description": "Developed an interactive Rock‑Paper‑Scissors game using Python logic and a responsive HTML/CSS frontend. Players compete against the computer with live score tracking and instant feedback – a practical showcase of frontend‑backend integration.",
+      "techStack": ["Python", "HTML", "CSS"],
       "status": "completed",
       "statusLabel": "Completed",
-      "startDate": "feb 2026",
+      "startDate": "Feb 2026",
       "endDate": "Jul 2026",
       "links": {
         "live": "https://aceyatech-ui.github.io/Rock-Paper-Scissors-game/",
@@ -67,56 +92,29 @@
     },
     {
       "id": "tri-ai-slm",
-      "name": "Building a small language model (lab)",
-      "description": "Built as part of the TRI AI program (Google DeepMind) — a small language model trained and evaluated end-to-end.",
+      "name": "Small Language Model (SLM) from Scratch",
+      "description": "Built a small language model from scratch as part of TRI AI (Google DeepMind). Trained and evaluated an SLM end‑to‑end using PyTorch, with a focus on African folktales.",
       "techStack": ["Python", "PyTorch", "SLM"],
       "status": "completed",
       "statusLabel": "Completed",
       "startDate": "May 2026",
-      "endDate": "June 2026",
+      "endDate": "Jun 2026",
       "links": {
         "github": "https://github.com/aceyatech-ui/Building-a-small-language-model"
       }
     },
     {
-      "id": "data-scraping",
-      "name": "Data Scraping Toolkit",
-      "description": "A set of Python scrapers and pipelines for collecting, cleaning, and structuring web data automatically.",
-      "techStack": ["Python", "Automation"],
-      "status": "ongoing",
-      "statusLabel": "Ongoing",
-      "startDate": "Jan 2026",
-      "endDate": "Feb 2026",
-      "links": {
-        "live": "https://github.com/placeholder/data-scraping-toolkit",
-        "github": "https://github.com/placeholder/data-scraping-toolkit"
-      }
-    },
-    {
       "id": "scholar-bridge",
-      "name": "Scholar Bridge",
-      "description": "A responsive React Demo front-end for ScholarBridge, a scholarship-matching platform, rebuilt to match the Figma design with the real image components (university crests, student photos, onboarding illustrations) wired into place. Built with Vite + React + React Router. Client-side routing keeps navigation instant and smooth, with no full-page reloads. Done as a capstone project for Tech4Dev, Women Techsters.",
-      "techStack": ["HTML", "CSS", "JavaScript"],
+      "name": "Scholar Bridge – Scholarship Matching Platform",
+      "description": "Rebuilt a scholarship‑matching platform frontend from Figma to production using React, Vite, and React Router. Wired in real university crests and student photos for a seamless, production‑ready UX.",
+      "techStack": ["React", "Vite", "CSS", "JavaScript"],
       "status": "completed",
       "statusLabel": "Completed",
-      "startDate": "Month Year",
-      "endDate": "Month Year",
-      "links": {
-        "live": "https://project-scholarbridge.vercel.app/",
-        "github": "https://github.com/aceyatech-ui/project-scholarbridge"
-      }
-    },
-    {
-      "id": "syncorrazon-frontend",
-      "name": "SynCorrazon Frontend",
-      "description": "Built and debugged a frontend for people to watch movies together. Still a work in progress — ironing out the kinks and making the experience seamless.",
-      "techStack": ["React", "CSS", "JavaScript"],
-      "status": "ongoing",
-      "statusLabel": "In progress",
       "startDate": "Jul 2026",
       "endDate": "Ongoing",
       "links": {
-        "live": "https://syncorrazon-frontend.vercel.app/"
+        "live": "https://project-scholarbridge.vercel.app/",
+        "github": "https://github.com/aceyatech-ui/project-scholarbridge"
       }
     }
   ],
@@ -125,7 +123,7 @@
     {
       "name": "SynCorrazon",
       "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
-      "description": "My startup, building automation-first products for people who are tired of doing things by hand.",
+      "description": "My startup: building automation‑first products for people who are tired of doing things by hand.",
       "status": "in-progress",
       "statusLabel": "In Progress",
       "startDate": "Mar 2026",
@@ -139,7 +137,7 @@
     {
       "name": "Kaizora Academy",
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
-      "description": "Where I teach AI Automation — practical, project-based, built for people who want to ship, not just learn theory.",
+      "description": "Where I teach AI Automation: practical, project‑based, built for people who want to ship, not just learn theory.",
       "status": "completed",
       "statusLabel": "Active",
       "startDate": "Jun 2026",
@@ -159,8 +157,8 @@
       "role": "ML Intern",
       "startDate": "Jul 2026",
       "endDate": "Ongoing",
-      "description": "Building and training agents that work, with guidance from the wonderful team.",
-      "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FeBE?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGPQ5vUBYd7Bc4KQwI_JfXLrSla8aNoDSHs"
+      "description": "Building and training AI agents that work, with guidance from a wonderful team. Hands‑on with LLMs, SLMs, and production ML workflows.",
+      "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FEBe"
     }
   ],
 
@@ -171,10 +169,10 @@
       "organisation": "Coursera: John Hopkins University",
       "image": "assets/images/cert-google-automation.png",
       "logo": "assets/logos/google-color-svgrepo-com.svg",
-      "description": "Letting python do the repetitive work.",
+      "description": "Built Python scripts to automate repetitive tasks, worked with APIs, and built data pipelines.",
       "category": "certificate",
       "type": "certificate",
-      "tags": ["python", "bash", "Google", "automation"],
+      "tags": ["python", "bash", "Google", "automation", "dev"],
       "startDate": "Feb 2026",
       "endDate": "Mar 2026",
       "status": "completed",
@@ -188,7 +186,7 @@
       "organisation": "Coursera: Google",
       "image": "assets/images/cert-google-cybersecurity.png",
       "logo": "assets/logos/google-color-svgrepo-com.svg",
-      "description": "Hands-on cybersecurity training focused on defence and analysis.",
+      "description": "Hands-on cybersecurity training focused on defence, threat analysis, and secure system design.",
       "category": "certificate",
       "type": "certificate",
       "tags": ["security", "python", "automation", "linux", "networking", "threat modeling", "log analysis", "SIEM"],
@@ -205,7 +203,7 @@
       "organisation": "Coursera: Board Infinity",
       "image": "assets/images/cert-devsecops-boardinfinity.jpeg",
       "logo": "assets/logos/coursera-svgrepo-com.svg",
-      "description": "CI/CD Integration.",
+      "description": "Learned CI/CD integration and secure development practices.",
       "category": "certificate",
       "type": "certificate",
       "tags": ["dev", "CI/CD"],
@@ -222,10 +220,10 @@
       "organisation": "Coursera: John Hopkins University",
       "image": "assets/images/cert-devsecops-johnhopkins.jpeg",
       "logo": "assets/logos/coursera-svgrepo-com.svg",
-      "description": "Secure coding practices and threat-aware system design.",
+      "description": "Applied secure coding practices and threat-aware system design.",
       "category": "certificate",
       "type": "certificate",
-      "tags": ["python", "CI/CD", "dev", "Github Actions", "GitHub", "DevSecOps"],
+      "tags": ["security", "python", "CI/CD", "dev", "GitHub Actions", "GitHub", "DevSecOps"],
       "startDate": "Apr 2026",
       "endDate": "May 2026",
       "status": "completed",
@@ -239,10 +237,10 @@
       "organisation": "TRI AI; Google DeepMind",
       "image": "assets/images/cert-slm-build.png",
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
-      "description": "Self-directed certification on building and training SLMs.",
-      "category": ["badges", "program"],
-      "type": "badges",
-      "tags": ["security", "dev"],
+      "description": "Self-directed certification on building and training SLMs from scratch.",
+      "category": "badge",
+      "type": "badge",
+      "tags": ["ai", "ML", "SLM", "dev"],
       "startDate": "May 2026",
       "endDate": "Jun 2026",
       "status": "completed",
@@ -251,26 +249,42 @@
       "certificateUrl": "https://www.skills.google/public_profiles/0cd9b44c-7f3d-477b-b3ef-28362099795f/badges/25109300"
     },
     {
-      "id": "cybersecurity",
+      "id": "cybersecurity-bootcamp",
       "name": "Cybersecurity Bootcamp",
       "organisation": "Tech4Africans; TechCrush (Scholarship)",
       "image": "assets/images/cert-cybersecurity.png",
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
-      "description": "Self-directed certification on building and training SLMs.",
-      "category": ["certificate", "program"],
-      "type": ["Program", "Certificate"],
+      "description": "Hands-on cybersecurity training covering threat modeling, log analysis, Linux, networking, Python, and bash. Team Lead for the capstone project.",
+      "category": "certificate",
+      "type": "certificate",
       "tags": ["security", "log analysis", "threat modeling", "linux", "networking", "python", "bash"],
       "startDate": "May 2026",
-      "endDate": "July 2026",
-      "status": "ongoing",
+      "endDate": "Jul 2026",
+      "status": "in-view",
       "statusLabel": "In View",
       "programUrl": "https://techcrush.pro/scholarship/",
-      "certificateUrl": " "
+      "certificateUrl": null
+    },
+    {
+      "id": "women-techsters",
+      "name": "Women Techsters — Software Development Bootcamp",
+      "organisation": "Tech4Dev",
+      "image": null,
+      "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
+      "description": "Intensive 3-month software development bootcamp covering full-stack development, version control, and industry best practices. Graduating in 6 days.",
+      "category": "badge",
+      "type": "badge",
+      "tags": ["dev", "bootcamp"],
+      "startDate": "Jun 2026",
+      "endDate": "Jul 2026",
+      "status": "in-view",
+      "statusLabel": "In View",
+      "programUrl": null,
+      "certificateUrl": null
     }
   ],
 
   "reviews": [],
-
   "testimonials": [],
 
   "backend": {
@@ -293,7 +307,7 @@
       { "label": "📱 WhatsApp", "action": "whatsapp" },
       { "label": "📧 Email", "action": "email" },
       { "label": "🔗 LinkedIn", "action": "linkedin" },
-      { "label": "💻 GitHub", "action": "github" },
+      { "label": "📸 Instagram", "action": "instagram" },
       { "label": "🔄 Start Over", "action": "reset" }
     ]
   }

@@ -15,8 +15,6 @@
 
   --status-progress-bg:  #F59E0B;
   --status-progress-text: #1A1A1A;
-  --status-view-bg:      #3B82F6;
-  --status-view-text:    #FFFFFF;
   --status-complete-bg:  #10B981;
   --status-complete-text: #FFFFFF;
 
@@ -42,8 +40,6 @@ html[data-theme="dark"]{
 
   --status-progress-bg:  #D97706;
   --status-progress-text: #1A1A1A;
-  --status-view-bg:      #60A5FA;
-  --status-view-text:    #1A1A1A;
   --status-complete-bg:  #34D399;
   --status-complete-text: #1A1A1A;
 }
@@ -133,6 +129,9 @@ h1,h2,h3{
   background: transparent;
 }
 
+/* ==========================================================================
+   STATUS BADGES — Orange for in-progress/in-view/ongoing, Green for completed
+   ========================================================================== */
 .status-badge{
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -142,9 +141,18 @@ h1,h2,h3{
   white-space: nowrap;
   letter-spacing: 0.02em;
 }
-.status-badge.status-in-progress{ background: var(--status-progress-bg); color: var(--status-progress-text); }
-.status-badge.status-in-view{ background: var(--status-view-bg); color: var(--status-view-text); }
-.status-badge.status-completed{ background: var(--status-complete-bg); color: var(--status-complete-text); }
+
+.status-badge.status-in-progress,
+.status-badge.status-in-view,
+.status-badge.status-ongoing {
+  background: var(--status-progress-bg);
+  color: var(--status-progress-text);
+}
+
+.status-badge.status-completed {
+  background: var(--status-complete-bg);
+  color: var(--status-complete-text);
+}
 
 .timeline{
   font-family: var(--font-mono);
@@ -580,7 +588,7 @@ h1,h2,h3{
 .program-links a:hover{ text-decoration: underline; }
 .program-links .disabled{ color: var(--text-soft); opacity: 0.6; pointer-events:none; }
 
-/* ---------- Certificate Image (300px zoom) ---------- */
+/* ---------- Certificate Image ---------- */
 .cert-image-wrap {
   margin-top: 0.5rem;
   overflow: visible !important;
@@ -594,7 +602,7 @@ h1,h2,h3{
 }
 
 .cert-image-wrap:hover .cert-image {
-  transform: scale(3.5);            /* 150px * 2 = 300px */
+  transform: scale(3.5);
   transform-origin: top left;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -725,7 +733,7 @@ h1,h2,h3{
   min-height: 1.2em;
 }
 
-/* ---------- Contact (logos normal size) ---------- */
+/* ---------- Contact ---------- */
 .contact-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -905,7 +913,7 @@ h1,h2,h3{
 }
 
 /* ==========================================================================
-   HOBBIES (natural zoom, fits box)
+   HOBBIES
    ========================================================================== */
 .hobbies-section {
   max-width: var(--container);
@@ -955,7 +963,7 @@ h1,h2,h3{
 }
 
 .hobby-item:hover .hobby-image {
-  transform: scale(1.6);              /* 120px * 1.6 = 192px — readable & fits */
+  transform: scale(1.6);
   transform-origin: center center;
   box-shadow: 0 15px 30px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1028,28 +1036,18 @@ h1,h2,h3{
 @media (max-width: 480px){
   .chat-window{ width: calc(100vw - 2rem); }
   .hero{ padding-top: 8rem; }
-}
-
-.status-badge.status-ongoing {
-  background: var(--status-progress-bg);
-  color: var(--status-progress-text);
-}
-/* ==========================================================================
-   MOBILE ZOOM FIX — for phones only
-   ========================================================================== */
-
-@media (max-width: 480px) {
-  /* Certificate zoom — smaller on mobile */
+  
+  /* Certificate zoom - smaller on mobile */
   .cert-image-wrap:hover .cert-image {
-    transform: scale(1.8) !important;
-    transform-origin: top left !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+    transform: scale(1.8);
+    transform-origin: top left;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   }
-
-  /* Hobby zoom — smaller on mobile */
+  
+  /* Hobby zoom - smaller on mobile */
   .hobby-item:hover .hobby-image {
-    transform: scale(1.2) !important;
-    transform-origin: center center !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+    transform: scale(1.2);
+    transform-origin: center center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   }
-} 
+}

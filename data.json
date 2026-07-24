@@ -36,8 +36,8 @@
     { "category": "AI Automation", "items": ["n8n Workflows", "Zapier / Make", "Chatbot Logic", "Process Orchestration", "Prompt Engineering"] },
     { "category": "Development", "items": ["HTML / CSS / JavaScript", "Python", "Frontend Builds", "REST APIs", "Git & GitHub"] },
     { "category": "Security", "items": ["Security-aware Design", "Threat Modeling Basics", "Safe Data Handling", "Access Control Thinking", "Splunk", "Packet Tracer", "WireShark"] },
-    { "category": "Business", "items": ["Startup Ops (SynCorrazon)", "Teaching & Curriculum Building (Kaizora)", "Client Communication", "Product Thinking"] }
-  ],
+    { "category": "Business", "items": ["Startup Ops (SynCorrazon)", "Teaching & Curriculum Building (Kaizora)", "Client Communication", "Product Thinking"] },
+    { "category": "Soft Skills", "items": ["Leadership", "Communication", "Problem-Solving", "Resilience", "Adaptability", "Strategic Thinking"] }  ],
 
   "projects": [
     {

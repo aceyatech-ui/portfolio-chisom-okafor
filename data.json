@@ -8,7 +8,7 @@
     "bio": "I design and build security‑aware AI systems, automation workflows, and full‑stack applications. Since January 2026, I’ve trained Small Language Models (SLMs), deployed production web apps, and co‑founded two startups. Currently, I’m a Machine Learning Intern at FlyRank, working on AI agents and production ML. I also lead the TRI AI team (Google DeepMind) building an SLM on African folktales, and I’m a Team Lead for the TechCrush Cybersecurity Bootcamp capstone. Through Kaizora Academy, I teach practical AI automation to aspiring builders. I ship what I start — and I make sure it’s secure.",
     "metaDescription": "Chisom Okafor – AI/ML Engineer, Full‑Stack Developer, and Automation Specialist. Building secure, production‑ready systems with SLMs, Python, and security-first design.",
     "hobbies": [
-      { "name": "Getting to legendary", "image": "assets/images/gaming.webp" },
+      { "name": "Getting to legendary in CODM", "image": "assets/images/gaming.webp" },
       { "name": "Probably watching a horror movie", "image": "assets/images/hobby-horror.png" },
       { "name": "Listening to good music", "image": "assets/images/hobby-music.png" },
       { "name": "Taking a walk", "image": "assets/images/hobby-walk.png" }
@@ -44,7 +44,7 @@
       "id": "syncorrazon-frontend",
       "name": "SynCorrazon Frontend – Real‑Time Movie Watching",
       "description": "Built and debugged a frontend for real‑time movie watching with friends. Still a work in progress – ironing out the kinks and making the experience seamless.",
-      "techStack": ["React", "Vite", "CSS", "JavaScript"],
+      "techStack": ["React", "Vite", "CSS", "JavaScript", "WebRTC", "Firebase"],
       "status": "in-progress",
       "statusLabel": "In Progress",
       "startDate": "Jul 2026",
@@ -123,7 +123,7 @@
     {
       "name": "SynCorrazon",
       "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
-      "description": "My startup: building automation‑first products for people who are tired of doing things by hand.",
+      "description": "My startup: SynCorrazon – a sync-watch platform for Nigeria's networks, built with React, Firebase, WebRTC, and a 500ms heartbeat sync engine.",
       "status": "in-progress",
       "statusLabel": "In Progress",
       "startDate": "Mar 2026",

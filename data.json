@@ -2,11 +2,11 @@
   "profile": {
     "fullName": "Chisom Okafor",
     "nicknames": ["Aceya", "Slime"],
-    "title": "AI/ML Engineer & Full‑Stack Developer | Automation & Security Specialist",
-    "tagline": "Building intelligent systems that automate, connect, and ship – with security at the core.",
+    "title": "Web Developer & Full-Stack Engineer",
+    "tagline": "Building web applications with clean code, security, and purpose.",
     "philosophy": "I build systems that think, connect, and ship. With a security aware mindset.",
-    "bio": "I design and build security‑aware AI systems, automation workflows, and full‑stack applications. Since January 2026, I’ve trained Small Language Models (SLMs), deployed production web apps, and co‑founded two startups. Currently, I’m a Machine Learning Intern at FlyRank, working on AI agents and production ML. I also lead the TRI AI team (Google DeepMind) building an SLM on African folktales, and I’m a Team Lead for the TechCrush Cybersecurity Bootcamp capstone. Through Kaizora Academy, I teach practical AI automation to aspiring builders. I ship what I start — and I make sure it’s secure.",
-    "metaDescription": "Chisom Okafor – AI/ML Engineer, Full‑Stack Developer, and Automation Specialist. Building secure, production‑ready systems with SLMs, Python, and security-first design.",
+    "bio": "I design and build security‑aware AI systems, automation workflows, and full‑stack applications. Since January 2026, I've trained Small Language Models (SLMs), deployed production web apps, and co‑founded two startups. Currently, I'm a Machine Learning Intern at FlyRank, working on AI agents and production ML. I also lead the TRI AI team (Google DeepMind) building an SLM on African folktales, and I'm a Team Lead for the TechCrush Cybersecurity Bootcamp capstone. Through Kaizora Academy, I teach practical AI automation to aspiring builders. I ship what I start — and I make sure it's secure. I'm currently open to web development roles – let's build something great together.",
+    "metaDescription": "Chisom Okafor – Web Developer & Full-Stack Engineer. Portfolio showcasing React, Python, and full-stack projects.",
     "hobbies": [
       { "name": "Getting to legendary in CODM", "image": "assets/images/gaming.webp" },
       { "name": "Probably watching a horror movie", "image": "assets/images/horror.jpg" },
@@ -37,39 +37,14 @@
     { "category": "Development", "items": ["HTML / CSS / JavaScript", "Python", "Frontend Builds", "REST APIs", "Git & GitHub"] },
     { "category": "Security", "items": ["Security-aware Design", "Threat Modeling Basics", "Safe Data Handling", "Access Control Thinking", "Splunk", "Packet Tracer", "WireShark"] },
     { "category": "Business", "items": ["Startup Ops (SynCorrazon)", "Teaching & Curriculum Building (Kaizora)", "Client Communication", "Product Thinking"] },
-    { "category": "Soft Skills", "items": ["Leadership", "Communication", "Problem-Solving", "Resilience", "Adaptability", "Strategic Thinking"] }  ],
+    { "category": "Soft Skills", "items": ["Leadership", "Communication", "Problem-Solving", "Resilience", "Adaptability", "Strategic Thinking"] }
+  ],
 
   "projects": [
     {
-      "id": "syncorrazon-frontend",
-      "name": "SynCorrazon Frontend – Real‑Time Movie Watching",
-      "description": "Built and debugged a frontend for real‑time movie watching with friends. Still a work in progress – ironing out the kinks and making the experience seamless.",
-      "techStack": ["React", "Vite", "CSS", "JavaScript", "WebRTC", "Firebase"],
-      "status": "in-progress",
-      "statusLabel": "In Progress",
-      "startDate": "Jul 2026",
-      "endDate": "Ongoing",
-      "links": {
-        "live": "https://syncorrazon-frontend.vercel.app/"
-      }
-    },
-    {
-      "id": "portfolio-backend",
-      "name": "Portfolio Backend – Flask API & AI Chatbot",
-      "description": "Flask API that powers review submissions, admin approval, and an AI chatbot for my portfolio. Deployed on Render with cron keep‑alive.",
-      "techStack": ["Flask", "Python", "json"],
-      "status": "completed",
-      "statusLabel": "Completed",
-      "startDate": "Jul 2026",
-      "endDate": "Ongoing",
-      "links": {
-        "live": "https://portfolio-chisom-okafor.onrender.com"
-      }
-    },
-    {
       "id": "quiz-app",
-      "name": "Personality Quiz – What Kind of Animal Are You?",
-      "description": "Built a full interactive personality quiz with 10 timed questions, score tracking, and personality type results. Designed a clean, distraction‑free UI that works on all devices.",
+      "name": "Personality Quiz App",
+      "description": "Built a full interactive quiz with 10 timed questions, score tracking, and personality type results. Designed a clean, distraction-free UI that works on all devices.",
       "techStack": ["JavaScript", "HTML/CSS"],
       "status": "completed",
       "statusLabel": "Completed",
@@ -82,8 +57,8 @@
     },
     {
       "id": "Rock-paper-scissors",
-      "name": "Rock‑Paper‑Scissors Game – Interactive Python & JS",
-      "description": "Developed an interactive Rock‑Paper‑Scissors game using Python logic and a responsive HTML/CSS frontend. Players compete against the computer with live score tracking and instant feedback – a practical showcase of frontend‑backend integration.",
+      "name": "Rock, Paper, Scissors App",
+      "description": "Built a fun, interactive game with Python logic and a clean HTML/CSS frontend. Players compete against the computer with real-time score tracking and instant feedback.",
       "techStack": ["Python", "HTML", "CSS"],
       "status": "completed",
       "statusLabel": "Completed",
@@ -96,8 +71,8 @@
     },
     {
       "id": "tri-ai-slm",
-      "name": "Small Language Model (SLM) from Scratch (TRI AI / Google DeepMind lab)",
-      "description": "Built as part of the TRI AI program (Google DeepMind) — a small language model trained on African galore data and evaluated end-to-end using PyTorch.",
+      "name": "Building a small language model (lab)",
+      "description": "Built as part of the TRI AI program (Google DeepMind) – a small language model trained on African galore data and evaluated end-to-end using PyTorch.",
       "techStack": ["Python", "PyTorch", "SLM"],
       "status": "completed",
       "statusLabel": "Completed",
@@ -109,8 +84,8 @@
     },
     {
       "id": "scholar-bridge",
-      "name": "Scholar Bridge – Scholarship Matching Platform",
-      "description": "A responsive demo front-end for ScholarBridge, a scholarship-matching platform, rebuilt from Figma to match the design. Some buttons are static and features are limited — it's a demo showcase.",      
+      "name": "Scholar Bridge",
+      "description": "A responsive demo front-end for ScholarBridge, a scholarship-matching platform, rebuilt from Figma to match the design. Some buttons are static and features are limited – it's a demo showcase.",
       "techStack": ["React", "Vite", "CSS", "JavaScript"],
       "status": "completed",
       "statusLabel": "Completed",
@@ -120,6 +95,19 @@
         "live": "https://project-scholarbridge.vercel.app/",
         "github": "https://github.com/aceyatech-ui/project-scholarbridge"
       }
+    },
+    {
+      "id": "portfolio-backend",
+      "name": "Aceya Portfolio Backend",
+      "description": "The live backend powering this very portfolio – handles review submissions, admin approval, AI chatbot, and serves as a real-time status check. Built with Flask and Python, deployed on Render. Visit the URL to see the service status.",
+      "techStack": ["Python", "Flask", "REST API", "Render"],
+      "status": "completed",
+      "statusLabel": "Live",
+      "startDate": "Jul 2026",
+      "endDate": "Ongoing",
+      "links": {
+        "live": "https://portfolio-chisom-okafor.onrender.com"
+      }
     }
   ],
 
@@ -127,7 +115,7 @@
     {
       "name": "SynCorrazon",
       "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
-      "description": "My startup: SynCorrazon – a sync-watch platform for Nigeria's networks, built with React, Firebase, WebRTC, and a 500ms heartbeat sync engine.",
+      "description": "My startup – building automation-first products for people who are tired of doing things by hand.",
       "status": "in-progress",
       "statusLabel": "In Progress",
       "startDate": "Mar 2026",
@@ -139,9 +127,28 @@
       "website": "https://syncorrazon-frontend.vercel.app/"
     },
     {
+      "name": "SynCorrazon Frontend",
+      "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
+      "description": "Built and debugged a frontend for people to watch movies together. Still a work in progress – ironing out the kinks and making the experience seamless.",
+      "status": "in-progress",
+      "statusLabel": "In Progress",
+      "startDate": "Jul 2026",
+      "endDate": "Ongoing",
+      "website": "https://syncorrazon-frontend.vercel.app/"
+    },
+    {
+      "name": "Data Scraping Toolkit",
+      "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
+      "description": "Built Python scrapers and pipelines for collecting, cleaning, and structuring web data automatically. Designed for repeatable, production-ready data extraction.",
+      "status": "in-progress",
+      "statusLabel": "In Progress",
+      "startDate": "Jan 2026",
+      "endDate": "Feb 2026"
+    },
+    {
       "name": "Kaizora Academy",
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
-      "description": "Where I teach AI Automation: practical, project‑based, built for people who want to ship, not just learn theory.",
+      "description": "Where I teach AI Automation – practical, project-based, built for people who want to ship, not just learn theory.",
       "status": "completed",
       "statusLabel": "Active",
       "startDate": "Jun 2026",
@@ -161,7 +168,7 @@
       "role": "ML Intern",
       "startDate": "Jul 2026",
       "endDate": "Ongoing",
-      "description": "Building and training AI agents that work, with guidance from a wonderful team. Hands‑on with LLMs, SLMs, and production ML workflows.",
+      "description": "Building and training AI agents that work, with guidance from a wonderful team. Hands-on with LLMs, SLMs, and production ML workflows.",
       "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FEBe"
     }
   ],
@@ -271,19 +278,19 @@
     },
     {
       "id": "women-techsters",
-      "name": "Women Techsters — Software Development Bootcamp",
+      "name": "Women Techsters – Software Development Bootcamp",
       "organisation": "Tech4Dev",
       "image": null,
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
-      "description": "Intensive 3-month software development bootcamp covering full-stack development, version control, and industry best practices. Graduating in 6 days.",
+      "description": "Completed an intensive 3-week software development bootcamp covering HTML, CSS, and JavaScript. The program focused on building functional, responsive web applications – with hands-on projects and real-world application of frontend development skills.",
       "category": "badge",
       "type": "badge",
-      "tags": ["dev", "bootcamp"],
+      "tags": ["dev", "bootcamp", "HTML", "CSS", "JavaScript"],
       "startDate": "Jun 2026",
       "endDate": "Jul 2026",
       "status": "in-view",
       "statusLabel": "In View",
-      "programUrl": "https://womentechsters.org/programs/bootcamp/",
+      "programUrl": null,
       "certificateUrl": null
     }
   ],

@@ -7,12 +7,13 @@
     "philosophy": "I build systems that think, connect, and ship. With a security aware mindset.",
     "bio": "I design and build security‑aware AI systems, automation workflows, and full‑stack applications. Since January 2026, I've trained Small Language Models (SLMs), deployed production web apps, and co‑founded two startups. Currently, I'm a Machine Learning Intern at FlyRank, working on AI agents and production ML. I also lead the TRI AI team (Google DeepMind) building an SLM on African folktales, and I'm a Team Lead for the TechCrush Cybersecurity Bootcamp capstone. Through Kaizora Academy, I teach practical AI automation to aspiring builders. I ship what I start — and I make sure it's secure. I'm currently open to web development and AI/ML roles – let's build something great together.",
     "metaDescription": "Chisom Okafor – Web Developer, AI/ML Engineer & Automation Specialist. Portfolio with full-stack apps, SLMs, and security projects.",
-    "Hobbies": [
+    "hobbies": [
       { "name": "Getting to legendary in CODM", "image": "assets/images/gaming.webp" },
       { "name": "Probably watching a horror movie", "image": "assets/images/horror.jpg" },
       { "name": "Listening to good music", "image": "assets/images/music.png" },
-      { "name": "Making music", "image": "assets/images/bandlab.png" }
+      { "name": "Making music", "image": "assets/images/bandlab.png" 
     ],
+    
     "profileImage": "assets/images/profile.jpg.jpeg",
     "contact": {
       "email": "aceyathedev@gmail.com",

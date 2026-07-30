@@ -137,15 +137,6 @@
       "website": "https://syncorrazon-frontend.vercel.app/"
     },
     {
-      "name": "Data Scraping Toolkit",
-      "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
-      "description": "Built Python scrapers and pipelines for collecting, cleaning, and structuring web data automatically. Designed for repeatable, production-ready data extraction.",
-      "status": "in-progress",
-      "statusLabel": "In Progress",
-      "startDate": "Jan 2026",
-      "endDate": "Feb 2026"
-    },
-    {
       "name": "Kaizora Academy",
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
       "description": "Where I teach AI Automation – practical, project-based, built for people who want to ship, not just learn theory.",

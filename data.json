@@ -41,6 +41,16 @@
   ],
 
   "projects": [
+      {
+      "name": "SynCorrazon Frontend",
+      "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
+      "description": "Built and debugged a frontend for people to watch movies together. Still a work in progress – ironing out the kinks and making the experience seamless.",
+      "status": "in-progress",
+      "statusLabel": "In Progress",
+      "startDate": "Jul 2026",
+      "endDate": "Ongoing",
+      "website": "https://syncorrazon-frontend.vercel.app/"
+    },
     {
       "id": "quiz-app",
       "name": "Personality Quiz App",
@@ -127,16 +137,6 @@
       "website": "https://syncorrazon-frontend.vercel.app/"
     },
     {
-      "name": "SynCorrazon Frontend",
-      "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
-      "description": "Built and debugged a frontend for people to watch movies together. Still a work in progress – ironing out the kinks and making the experience seamless.",
-      "status": "in-progress",
-      "statusLabel": "In Progress",
-      "startDate": "Jul 2026",
-      "endDate": "Ongoing",
-      "website": "https://syncorrazon-frontend.vercel.app/"
-    },
-    {
       "name": "Kaizora Academy",
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
       "description": "Where I teach AI Automation – practical, project-based, built for people who want to ship, not just learn theory.",
@@ -150,13 +150,23 @@
         "linkedin": "https://www.linkedin.com/company/kaizora-academy/"
       }
     }
+      {
+      "name": "SynCorrazon Frontend",
+      "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
+      "description": "A security focused app for checking the legitimacy of a website and for checking for open ports. Backend unavailable.",
+      "status": "in-progress",
+      "statusLabel": "In Progress",
+      "startDate": "Aug 2026",
+      "endDate": "Ongoing",
+      "website": "https://phish-port-scanner.vercel.app/"
+    },
   ],
 
   "workExperience": [
     {
       "company": "FlyRank",
       "logo": "assets/logos/flyrank.svg",
-      "role": "ML Intern",
+      "role": "AI Marketing Intern",
       "startDate": "Jul 2026",
       "endDate": "Ongoing",
       "description": "Building and training AI agents that work, with guidance from a wonderful team. Hands-on with LLMs, SLMs, and production ML workflows.",
@@ -271,7 +281,7 @@
       "id": "women-techsters",
       "name": "Women Techsters – Software Development Bootcamp",
       "organisation": "Tech4Dev",
-      "image": null,
+      "image": "assets/images/Chisom_Okafor_WT_Bootcamp_Cohort_5.1_certificate.png",
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
       "description": "Completed an intensive 3-week software development bootcamp covering HTML, CSS, and JavaScript. The program focused on building functional, responsive web applications with hands-on projects.",
       "category": "badge",

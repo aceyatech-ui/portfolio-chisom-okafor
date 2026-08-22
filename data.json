@@ -150,16 +150,6 @@
         "linkedin": "https://www.linkedin.com/company/kaizora-academy/"
       }
     }
-      {
-      "name": "SynCorrazon Frontend",
-      "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
-      "description": "A security focused app for checking the legitimacy of a website and for checking for open ports. Backend unavailable.",
-      "status": "in-progress",
-      "statusLabel": "In Progress",
-      "startDate": "Aug 2026",
-      "endDate": "Ongoing",
-      "website": "https://phish-port-scanner.vercel.app/"
-    },
   ],
 
   "workExperience": [
@@ -264,7 +254,7 @@
       "id": "cybersecurity-bootcamp",
       "name": "Cybersecurity Bootcamp",
       "organisation": "Tech4Africans; TechCrush (Scholarship)",
-      "image": "assets/images/cert-cybersecurity.png",
+      "image": null,
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
       "description": "Hands-on cybersecurity training covering threat modeling, log analysis, Linux, networking, Python, and bash. Team Lead for the capstone project.",
       "category": "certificate",
@@ -291,8 +281,8 @@
       "endDate": "Jul 2026",
       "status": "in-view",
       "statusLabel": "In View",
-      "programUrl": null,
-      "certificateUrl": null
+      "programUrl": "https://womentechsters.org/programs/bootcamp/",
+      "certificateUrl": "https://certfill.com/verify/FTgHxskGGj"
     }
   ],
 

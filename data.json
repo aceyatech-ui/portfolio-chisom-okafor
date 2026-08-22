@@ -45,6 +45,7 @@
       "name": "SynCorrazon Frontend",
       "logo": "assets/logos/placeholder-syncorrazon-svgrepo-com.svg",
       "description": "Built and debugged a frontend for people to watch movies together. Still a work in progress – ironing out the kinks and making the experience seamless.",
+      "techStack": ["JavaScript", "HTML/CSS"],
       "status": "in-progress",
       "statusLabel": "In Progress",
       "startDate": "Jul 2026",

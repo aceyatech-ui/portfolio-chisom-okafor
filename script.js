@@ -155,9 +155,6 @@
     }
 
     const wrapper = el("div", "hobbies-wrapper");
-    const label = el("p", "hobbies-label", "When I'm not building, I'm usually…");
-    wrapper.appendChild(label);
-
     const row = el("div", "hobbies-row");
     hobbies.forEach(function (hobby) {
       const item = el("div", "hobby-item");
@@ -884,8 +881,7 @@
     renderVentures(data.ventures);
     renderExperience(data.workExperience);
     renderPrograms(data.certifications);
-    renderReviews(data.reviews, data.testimonials);
-    initReviewForm();
+    // Reviews are currently disabled in the page markup.
     renderContact(data.profile.contact);
     renderHobbies(data.profile.hobbies);
     document.getElementById("footerYear").textContent = new Date().getFullYear();

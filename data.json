@@ -2,11 +2,11 @@
   "profile": {
     "fullName": "Chisom Okafor",
     "nicknames": ["Aceya", "Slime"],
-    "title": "Full-Stack & AI/ML Engineer",
+    "title": "AI Automation & Business Systems Engineer",
     "tagline": "Building web applications, AI systems, and automation workflows – with clean code and security in mind.",
-    "philosophy": "I build systems that think, connect, and ship. With a security aware mindset.",
+    "philosophy": "When you automate repetitive tasks, people spend more time being people.",
     "bio": "I design and build security‑aware AI systems, automation workflows, and full‑stack applications. Since January 2026, I've trained Small Language Models (SLMs), deployed production web backends, and shipped automation projects.",
-    "metaDescription": "Chisom Okafor – Web Developer, AI/ML Engineer & Automation Specialist. Portfolio with full-stack apps, SLMs, and security projects.",
+    "metaDescription": "Chisom Okafor – AI Automation & Business Systems Engineer. I design and build security‑aware AI systems, automation workflows, and full‑stack applications. I help businesses and individuals automate repetitive tasks, freeing up time for creativity, innovation and improving business operations.",
     "hobbies": [
       { "name": "Getting to legendary in CODM", "image": "assets/images/gaming.webp" },
       { "name": "Probably watching a horror movie", "image": "assets/images/horror.jpg" },

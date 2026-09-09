@@ -162,7 +162,17 @@
       "endDate": "Ongoing",
       "description": "Building and training AI agents that work, with guidance from a wonderful team. Hands-on with LLMs, SLMs, and production ML workflows.",
       "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FEBe"
+    },
+    {
+      "company": "FlyRank",
+      "logo": "assets/logos/flyrank.svg",
+      "role": "AI Fluency Intern",
+      "startDate": "Jul 2026",
+      "endDate": "Ongoing",
+      "description": "Building and training AI agents that work, with guidance from a wonderful team. Hands-on with LLMs, SLMs, and production ML workflows.",
+      "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FEBe"
     }
+    
   ],
 
   "certifications": [
@@ -255,7 +265,7 @@
       "id": "cybersecurity-bootcamp",
       "name": "Cybersecurity Bootcamp",
       "organisation": "Tech4Africans; TechCrush (Scholarship)",
-      "image": null,
+      "image": "assets/images/techcrush-cyber.png",
       "logo": "assets/logos/placeholder-kaizoraacademy-svgrepo-com.svg",
       "description": "Hands-on cybersecurity training covering threat modeling, log analysis, Linux, networking, Python, and bash. Team Lead for the capstone project.",
       "category": "certificate",
@@ -263,10 +273,10 @@
       "tags": ["security", "log analysis", "threat modeling", "linux", "networking", "python", "bash"],
       "startDate": "May 2026",
       "endDate": "Jul 2026",
-      "status": "in-view",
-      "statusLabel": "In View",
+      "status": "completed",
+      "statusLabel": "Completed",
       "programUrl": "https://techcrush.pro/scholarship/",
-      "certificateUrl": null
+      "certificateUrl": "https://techcrush.pro/verify-certificates"
     },
     {
       "id": "women-techsters",
@@ -280,8 +290,8 @@
       "tags": ["dev", "bootcamp", "HTML", "CSS", "JavaScript"],
       "startDate": "Jun 2026",
       "endDate": "Jul 2026",
-      "status": "in-view",
-      "statusLabel": "In View",
+      "status": "completed",
+      "statusLabel": "Completed",
       "programUrl": "https://womentechsters.org/programs/bootcamp/",
       "certificateUrl": "https://certfill.com/verify/FTgHxskGGj"
     }

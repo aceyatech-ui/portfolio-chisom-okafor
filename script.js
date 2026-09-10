@@ -518,6 +518,26 @@
     footerLinks.appendChild(gh);
   }
 
+  function initContactForm(contactEmail) {
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("contactFormStatus");
+    if (!form || !status) return;
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const name = formData.get("name").trim();
+      const email = formData.get("email").trim();
+      const message = formData.get("message").trim();
+      const subject = "Project enquiry from " + name;
+      const body = "Name: " + name + "\nEmail: " + email + "\n\n" + message;
+      const gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(contactEmail) + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+      window.open(gmailUrl, "_blank", "noopener");
+      status.textContent = "Gmail opened with your message ready to send.";
+    });
+  }
+
   const Chatbot = (function () {
     let config = null;
     let state = { messages: [], userMessageCount: 0, pivoted: false };
@@ -883,6 +903,7 @@
     renderPrograms(data.certifications);
     // Reviews are currently disabled in the page markup.
     renderContact(data.profile.contact);
+    initContactForm(data.profile.contact.email);
     renderHobbies(data.profile.hobbies);
     document.getElementById("footerYear").textContent = new Date().getFullYear();
     Chatbot.init(data.chatbot);

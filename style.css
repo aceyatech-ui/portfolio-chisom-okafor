@@ -734,6 +734,19 @@ h1,h2,h3{
 }
 
 /* ---------- Contact ---------- */
+.contact-intro{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 2rem;
+  max-width: 760px;
+  margin: -0.5rem 0 2rem;
+}
+.contact-intro p{
+  max-width: 52ch;
+  color: var(--text-soft);
+  margin: 0;
+}
 .contact-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -802,11 +815,14 @@ h1,h2,h3{
   background: var(--accent);
   color: var(--accent-text);
   box-shadow: 0 10px 25px var(--shadow);
-  font-size: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
   display:flex; align-items:center; justify-content:center;
   transition: transform var(--transition);
 }
 .chat-toggle:hover{ transform: scale(1.08); }
+.chat-label{ line-height: 1; }
 
 .chat-window{
   position: absolute;
@@ -1090,4 +1106,16 @@ h1,h2,h3{
 .contact-value {
   font-size: 0.8rem;
   word-break: break-word;
+}
+
+.contact-intro {
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 560px){
+  .contact-intro{
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

@@ -280,11 +280,41 @@
     });
   }
 
+  function flyRankCredentialBadge(job, badgeIndex) {
+    const badge = el("a", "exp-verify-badge");
+    const badgeId = "flyrank-badge-" + badgeIndex;
+    badge.href = job.verificationUrl;
+    badge.target = "_blank";
+    badge.rel = "noopener noreferrer";
+    badge.setAttribute("aria-label", "Verify " + job.company + " certification " + job.credentialId);
+    badge.innerHTML = '<svg viewBox="0 0 164 164" role="img" aria-hidden="true"><circle cx="82" cy="82" r="81" fill="#051F21" stroke="rgba(255,255,255,0.1)"/><circle cx="82" cy="82" r="65" fill="none" stroke="rgba(255,255,255,0.1)"/><path id="' + badgeId + '-top" d="M12.4 82A69.6 69.6 0 0 1 151.6 82" fill="none"/><path id="' + badgeId + '-bottom" d="M5.6 82A76.4 76.4 0 0 0 158.4 82" fill="none"/><text class="flyrank-badge-label" fill="rgba(255,255,255,0.55)"><textPath href="#' + badgeId + '-top" startOffset="50%" text-anchor="middle">FLYRANK AI INTERNSHIP</textPath></text><text class="flyrank-badge-id" fill="#54E399"><textPath href="#' + badgeId + '-bottom" startOffset="50%" text-anchor="middle">' + job.credentialId + '</textPath></text><svg x="68" y="48" width="28" height="38" viewBox="26 18 44 60" fill="none"><path d="M28.2354 74.2202V67.9039C29.6419 68.4369 31.3724 68.7055 33.4311 68.7055C35.3235 68.7055 36.8153 68.2396 37.8979 67.3079C38.9805 66.3762 39.9566 64.8695 40.8218 62.792L42.6887 58.3139L29.8976 29.2879C35.0038 29.2879 39.6028 32.3307 41.5294 36.9893L47.0746 50.3985L56.0126 28.6038C57.9226 23.9452 62.5168 20.894 67.6187 20.894L50.0795 63.5936C48.4556 67.5933 46.5205 70.5102 44.2743 72.3484C42.0281 74.1867 39.1169 75.1058 35.5451 75.1058C32.6212 75.1058 30.1875 74.812 28.2354 74.2244Z" fill="#54E399"/></svg><text x="82" y="103" text-anchor="middle" class="flyrank-badge-verified" fill="#FFFFFF">Verified</text><text x="82" y="117" text-anchor="middle" class="flyrank-badge-role" fill="rgba(255,255,255,0.55)">' + job.credentialLabel + '</text></svg>';
+    return badge;
+  }
+
   function renderExperience(jobs) {
     const list = document.getElementById("experienceList");
-    jobs.forEach(function (job) {
+    jobs.forEach(function (job, index) {
       const card = el("div", "experience-card");
-      card.appendChild(el("div", "exp-logo", job.company.slice(0, 2).toUpperCase()));
+      const brand = el("div", "exp-brand");
+      if (job.verificationUrl) {
+        brand.appendChild(flyRankCredentialBadge(job, index));
+      } else {
+        const logo = el("div", "exp-logo");
+        if (job.logo) {
+          const logoImage = el("img", "exp-logo-image");
+          logoImage.src = job.logo;
+          logoImage.alt = job.company + " logo";
+          logo.appendChild(logoImage);
+        } else {
+          logo.textContent = job.company.slice(0, 2).toUpperCase();
+        }
+        brand.appendChild(logo);
+      }
+      if (job.credentialLabel) {
+        const credentialLabel = el("span", "exp-credential-label", job.credentialLabel);
+        brand.appendChild(credentialLabel);
+      }
+      card.appendChild(brand);
 
       const mid = el("div");
       mid.appendChild(el("p", "exp-role", job.role));
@@ -292,7 +322,17 @@
       mid.appendChild(el("p", "exp-desc", job.description));
       card.appendChild(mid);
 
-      card.appendChild(el("span", "exp-duration", timelineText(job.startDate, job.endDate)));
+      const meta = el("div", "exp-meta");
+      if (job.verificationUrl) {
+        const verifyLink = el("a", "exp-verify-link", "Verify Certification");
+        verifyLink.href = job.verificationUrl;
+        verifyLink.target = "_blank";
+        verifyLink.rel = "noopener noreferrer";
+        verifyLink.setAttribute("aria-label", "Verify " + job.company + " certification " + job.credentialId);
+        meta.appendChild(verifyLink);
+      }
+      meta.appendChild(el("span", "exp-duration", timelineText(job.startDate, job.endDate)));
+      card.appendChild(meta);
       list.appendChild(card);
     });
   }

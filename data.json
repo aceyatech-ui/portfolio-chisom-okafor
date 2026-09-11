@@ -161,8 +161,11 @@
       "role": "AI Marketing Intern",
       "startDate": "Jul 2026",
       "endDate": "Ongoing",
-      "description": "Building and training AI agents that work, with guidance from a wonderful team. Hands-on with LLMs, SLMs, and production ML workflows.",
-      "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FEBe"
+      "description": "Building AI-assisted marketing systems around audience research, positioning, content workflows, distribution, and measurement.",
+      "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FEBe",
+      "credentialLabel": "AI Marketing",
+      "credentialId": "FR-D1-T668H-R789R",
+      "verificationUrl": "https://internship.flyrank.ai/verify?id=FR-D1-T668H-R789R&first_name=Chisom"
     },
     {
       "company": "FlyRank",
@@ -170,8 +173,11 @@
       "role": "AI Fluency Intern",
       "startDate": "Jul 2026",
       "endDate": "Ongoing",
-      "description": "Building and training AI agents that work, with guidance from a wonderful team. Hands-on with LLMs, SLMs, and production ML workflows.",
-      "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FEBe"
+      "description": "Developing practical AI fluency through workflow design, tool judgment, and repeatable systems for using AI as a reliable teammate.",
+      "link": "https://www.linkedin.com/posts/chisom-okafor-5859b93a8_machinelearning-flyrank-ai-activity-7469826111573708800-FEBe",
+      "credentialLabel": "General AI Fluency",
+      "credentialId": "FR-D1-T668H-R789R",
+      "verificationUrl": "https://internship.flyrank.ai/verify?id=FR-D1-T668H-R789R&first_name=Chisom"
     }
     
   ],

@@ -553,8 +553,12 @@
       }).then(function () {
         status.textContent = "Message sent. I’ll get back to you soon.";
         form.reset();
-      }).catch(function () {
-        status.textContent = "Couldn't send your message. Please email me directly instead.";
+      }).catch(function (error) {
+        console.error("EmailJS contact form error:", error);
+        const errorMessage = error && (error.text || error.message);
+        status.textContent = errorMessage
+          ? "Couldn't send: " + errorMessage
+          : "Couldn't send your message. Please email me directly instead.";
       }).finally(function () {
         submitButton.disabled = false;
       });

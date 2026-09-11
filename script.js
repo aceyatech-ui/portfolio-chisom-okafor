@@ -518,23 +518,46 @@
     footerLinks.appendChild(gh);
   }
 
-  function initContactForm(contactEmail) {
+  function initContactForm(contact) {
     const form = document.getElementById("contactForm");
     const status = document.getElementById("contactFormStatus");
     if (!form || !status) return;
 
+    const emailjsConfig = contact.emailjs || {};
+    const isConfigured = emailjsConfig.serviceId && emailjsConfig.templateId && emailjsConfig.publicKey && window.emailjs;
+    if (isConfigured) window.emailjs.init({ publicKey: emailjsConfig.publicKey });
+
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+      if (!isConfigured) {
+        status.textContent = "The contact form is being configured. Please email me directly for now.";
+        return;
+      }
+
       const formData = new FormData(form);
       const name = formData.get("name").trim();
       const email = formData.get("email").trim();
       const message = formData.get("message").trim();
       const subject = "Project enquiry from " + name;
-      const body = "Name: " + name + "\nEmail: " + email + "\n\n" + message;
-      const gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(contactEmail) + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      const submitButton = form.querySelector("button[type='submit']");
+      submitButton.disabled = true;
+      status.textContent = "Sending...";
 
-      window.open(gmailUrl, "_blank", "noopener");
-      status.textContent = "Gmail opened with your message ready to send.";
+      window.emailjs.send(emailjsConfig.serviceId, emailjsConfig.templateId, {
+        subject: subject,
+        content: message,
+        to_email: contact.email,
+        from_name: name,
+        from_email: email,
+        reply_to: email,
+      }).then(function () {
+        status.textContent = "Message sent. I’ll get back to you soon.";
+        form.reset();
+      }).catch(function () {
+        status.textContent = "Couldn't send your message. Please email me directly instead.";
+      }).finally(function () {
+        submitButton.disabled = false;
+      });
     });
   }
 
@@ -903,7 +926,7 @@
     renderPrograms(data.certifications);
     // Reviews are currently disabled in the page markup.
     renderContact(data.profile.contact);
-    initContactForm(data.profile.contact.email);
+    initContactForm(data.profile.contact);
     renderHobbies(data.profile.hobbies);
     document.getElementById("footerYear").textContent = new Date().getFullYear();
     Chatbot.init(data.chatbot);

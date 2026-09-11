@@ -523,42 +523,30 @@
     const status = document.getElementById("contactFormStatus");
     if (!form || !status) return;
 
-    const emailjsConfig = contact.emailjs || {};
-    const isConfigured = emailjsConfig.serviceId && emailjsConfig.templateId && emailjsConfig.publicKey && window.emailjs;
-    if (isConfigured) window.emailjs.init({ publicKey: emailjsConfig.publicKey });
+    const endpoint = contact.formspreeEndpoint || form.action;
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
-      if (!isConfigured) {
-        status.textContent = "The contact form is being configured. Please email me directly for now.";
-        return;
-      }
 
-      const formData = new FormData(form);
-      const name = formData.get("name").trim();
-      const email = formData.get("email").trim();
-      const message = formData.get("message").trim();
-      const subject = "Project enquiry from " + name;
       const submitButton = form.querySelector("button[type='submit']");
       submitButton.disabled = true;
       status.textContent = "Sending...";
 
-      window.emailjs.send(emailjsConfig.serviceId, emailjsConfig.templateId, {
-        subject: subject,
-        content: message,
-        to_email: contact.email,
-        from_name: name,
-        from_email: email,
-        reply_to: email,
-      }).then(function () {
+      fetch(endpoint, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      }).then(function (response) {
+        if (!response.ok) {
+          return response.json().then(function (data) {
+            throw new Error(data.errors ? data.errors.map(function (item) { return item.message; }).join(" ") : "Formspree could not send the message.");
+          });
+        }
         status.textContent = "Message sent. I’ll get back to you soon.";
         form.reset();
       }).catch(function (error) {
-        console.error("EmailJS contact form error:", error);
-        const errorMessage = error && (error.text || error.message);
-        status.textContent = errorMessage
-          ? "Couldn't send: " + errorMessage
-          : "Couldn't send your message. Please email me directly instead.";
+        console.error("Formspree contact form error:", error);
+        status.textContent = "Couldn't send: " + error.message;
       }).finally(function () {
         submitButton.disabled = false;
       });

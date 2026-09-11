@@ -20,11 +20,7 @@
       "linkedin": "https://www.linkedin.com/in/chisom-okafor-5859b93a8",
       "github": "https://github.com/aceyatech-ui",
       "instagram": "https://www.instagram.com/aceyathedeveloper/",
-      "emailjs": {
-        "serviceId": "service_qux3mx9",
-        "templateId": "template_dls98nn",
-        "publicKey": "xQbpNV5V_2-Muxp9o"
-      },
+      "formspreeEndpoint": "https://formspree.io/f/mqpknjyg",
       "logos": {
         "email": "assets/logos/gmail-svgrepo-com.svg",
         "whatsapp": "assets/logos/whatsapp-color-svgrepo-com.svg",
